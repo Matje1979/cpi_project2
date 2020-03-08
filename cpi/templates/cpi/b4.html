@@ -1,0 +1,1202 @@
+{% load i18n %}
+{% load static %}
+{% load zip_filter %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'cpi/favicon.ico' %}">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'cpi/stylesheet.css' %}">
+	<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<title>CPI</title>
+</head>
+<body>
+	<div class="menu-dropdown">
+		<div class="menu-close-box"><img src="{% static 'cpi/X.png' %}"></div>
+		<p class="menu-title">MENI</p>
+		<ul class="menu-dropdown-list">
+			<li class="list-item"><a href="{% url 'o-nama' %}">O NAMA</a></li>
+			<li class="list-item"><a href="{% url 'cpi-projekti' %}">PROJEKTI</a></li>
+			<li class="list-item" id="i-ture"><a href="{% url 'cpi-istorijske_ture' %}">ISTORIJSKE TURE</a></li>
+			<li class="list-item"><a href="{% url 'cpi-publikacije' %}">PUBLIKACIJE</a></li>
+		</ul>
+		 {% if 'en' not in request.path %}
+	        <ul class="nav-langs">
+	            <li class="light"><a href="{{ url }}">SRB</a></li>
+	            <li class="li-regular"><a href="/en{{ url }}">ENG</a></li>
+	            <li class="form-box">
+	        	    <form class="search-form" action="pretraga/" autocomplete="off">
+			            <button class="magnifying-glass" type="submit">
+			                <img src="{% static 'cpi/vektor.png' %}">
+			            </button>
+			            <input class="search-box-input" type="text" placeholder="Search" name="q">
+			            <p class="input-off">X</p>
+			        </form>
+		        </li>
+	        </ul>
+	      {% else %}
+	        <ul class="nav-langs">
+	            <li class="li-regular"><a href="{{ url }}">SRB</a></li>
+	            <li class="light"><a href="/en{{ url }}">ENG</a></li>
+	            <li class="form-box">
+	        	    <form class="search-form" action="#">
+			            <button class="magnifying-glass" type="submit">
+			                <img src="{% static 'cpi/vektor.png' %}">
+			            </button>
+			            <input class="search-box-input" type="text" placeholder="Search" name="q">
+			            <p class="input-off">X</p>
+			        </form>
+		       </li>
+	        </ul>
+	      {% endif %}
+	</div>
+	<div class="first-div-mobile">
+		<img class="background" src="{% static 'cpi/background-hp-mobile.png' %}">
+		<div class="title-link-wrapper">
+			<div class="div-title">Centar za primenjenu istoriju</div>
+			<div class="div-link"><p>SAZNAJ VIŠE</p></div>
+		</div>
+	</div>
+	<div class="slider">
+		<div class="slide">
+			<img class="background" src="{% static 'cpi/vodjenje.png' %}">
+			<div class="naslov">
+				 <div class="div_levi">
+				    <div class="d_mreze">
+				    	<a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812">
+							<div class="mreza1">
+								<img id="f" src="{% static 'cpi/fb_logo_white.png' %}">
+							</div>
+					    </a>
+					    <a href="https://www.youtube.com/channel/UCWVLw334maLEE7_1I3Pt_bg">
+							<div class="mreza2">
+								<img id ="screen" src="{% static 'cpi/YT.png' %}">
+							</div>
+					    </a>
+					    <a href="https://www.instagram.com/cpi_cph/">
+							<div class="mreza3">
+								<img id="camera" src="{% static 'cpi/Instagram1.png' %}">
+								<!-- <img id="camera-focus" src="{% static 'cpi/camera-center.png' %}"> -->
+							</div>
+					    </a>
+				    </div>
+					<div class="logo_cpi">
+						<img src="{% static 'cpi/cpi_logo.png' %}">
+					</div>
+			    </div>
+				<div class="div_desni">
+					<div class="desni_gornji">
+					    <h1 style="color: white;">{% trans 'Centar za primenjenu istoriju' %}</h1>
+				    </div>
+				    <div class="desni_donji">
+				        <a href=""><p>{% trans 'SAZNAJ VIŠE' %}</p></a>
+				    </div>
+			    </div>
+			</div>
+		</div><div class="slide">
+			<img class="background" src="{% static 'cpi/topovske.png' %}">
+			<div class="naslov">
+				 <div class="div_levi">
+				    <div class="d_mreze">
+				    	<a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812">
+							<div class="mreza1">
+								<img id="f" src="{% static 'cpi/fb_logo_white.png' %}">
+							</div>
+					    </a>
+					    <a href="https://www.youtube.com/channel/UCWVLw334maLEE7_1I3Pt_bg">
+							<div class="mreza2">
+								<img id ="screen" src="{% static 'cpi/YT.png' %}">
+							</div>
+					    </a>
+					    <a href="https://www.instagram.com/cpi_cph/">
+							<div class="mreza3">
+								<img id="camera" src="{% static 'cpi/Instagram1.png' %}">
+							</div>
+					    </a>
+				    </div>
+					<div class="logo_cpi">
+						<img src="{% static 'cpi/cpi_logo.png' %}">
+					</div>
+			    </div>
+				<div class="div_desni">
+					<div class="desni_gornji">
+					    <h1 style="color: white; font-size: 4vw;">{% trans 'Inicijativa za očuvanje Topovskih šupa' %}</h1>
+				    </div>
+				    <div class="desni_donji">
+				        <a href=""><p>{% trans 'SAZNAJ VIŠE' %}</p></a>
+				    </div>
+			    </div>
+			</div>
+		</div><div class="slide">
+			<img class="background" src="{% static 'cpi/javna_vodjenja.png' %}">
+			<div class="naslov">
+				<div class="div_levi">
+				    <div class="d_mreze">
+				    	<a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812">
+							<div class="mreza1">
+								<img id="f" src="{% static 'cpi/fb_logo_white.png' %}">
+							</div>
+					    </a>
+					    <a href="https://www.youtube.com/channel/UCWVLw334maLEE7_1I3Pt_bg">
+						<div class="mreza2">
+							<img id ="screen" src="{% static 'cpi/YT.png' %}">
+						</div>
+						<div class="mreza3">
+							<img id="camera" src="{% static 'cpi/Instagram1.png' %}">
+						</div>
+				    </div>
+					<div class="logo_cpi">
+						<img src="{% static 'cpi/cpi_logo.png' %}">
+					</div>
+			    </div>
+				<div class="div_desni">
+					<div class="desni_gornji">
+					    <h1 style="color: white; font-size: 3vw;">{% trans 'Javna vodjenja i studijske posete na lokacije od istorijskog značaja' %}</h1>
+				    </div>
+				    <div class="desni_donji">
+				        <a href=""><p>{% trans 'REZERVIŠI' %}</p></a>
+				    </div>
+			    </div>
+			</div>
+		</div>
+    </div>
+<!-- ---------------------------------AKTUELNOSTI----------------------------------------------------->
+	<div class="aktuelnosti">
+		<div class="section_title">
+			<p class="title_text">{% trans 'AKTUELNOSTI' %}</p>
+			<div class="title_underbar"></div>
+		</div>
+		<div class="aktuelnosti_content">
+			<div class="a_upper">
+				<img src="{% static 'cpi/seminar.png' %}">
+				<div class="a_upper_left">
+				</div>
+                <div class="a_upper_right">
+                	<p class="title">Naučni skupovi, seminari, radionice</p>
+                	<p class="description">Centar za primenjenu istoriju organizuje stručne skupove, seminare i radionice u cilju razmene iskustava, prezentacije novih dostignuća u nauci, razvijanju diskusija...</p>
+                	<div class="bottom_link">
+                		<div class="bottom_link_left"><a href=""><p>{% trans 'PROČITAJ VIŠE' %}</p></a></div>
+                		<div class="bottom_link_right">
+                			<img id="white-arrow" src="{% static 'cpi/strelica.png' %}" alt="arrow">
+                		</div>
+                	</div>
+                </div>
+			</div>
+			<div class="a_lower">
+				<div class="lower_slide">
+					<p class="title">Mapiranje mesta sećanja u 10 gradova u Srbiji</p>
+					<p class="description">CPI je pokrenuo novi projekat u 2019. godini „Budi glas a ne eho – Mapiranje mesta sećanja u 10 gradova u Srbiji“</p>
+					<div class="link">
+						<img src="{% static 'cpi/crvena_strelica.png' %}" alt="red_arrow">
+					</div>
+					<div class="social">
+						<a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812">
+							<div class="fb">
+								<img src="{% static 'cpi/fb_logo_white.png' %}">
+							</div>
+					    </a>
+					    <a href="">
+							<div class="tweet">
+								<img src="{% static 'cpi/tweeter_logo_white.png' %}">
+							</div>
+					    </a>
+					    <a href="mailto:centarzaprimenjenuistoriju@gmail.com">
+							<div class="mail">
+								<img src="{% static 'cpi/closed-envelope-white.png' %}">
+							</div>
+						</a>
+					</div>
+					<div class="bottom-edge"></div>
+					<div class="bottom">
+						<a href=""><p>{% trans 'PROČITAJ VIŠE' %}</p></a>
+					</div>
+					<div class="bottom-edge-middle"></div>
+				</div>
+				<div class="lower_slide">
+					<p class="title">Mapiranje mesta sećanja u 10 gradova u Srbiji</p>
+					<p class="description">CPI je pokrenuo novi projekat u 2019. godini „Budi glas a ne eho – Mapiranje mesta sećanja u 10 gradova u Srbiji“</p>
+					<div class="link">
+						<img src="{% static 'cpi/crvena_strelica.png' %}" alt="red_arrow">
+					</div>
+					<div class="social">
+						<a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812">
+							<div class="fb">
+								<img src="{% static 'cpi/fb_logo_white.png' %}">
+							</div>
+					    </a>
+						<div class="tweet">
+							<img src="{% static 'cpi/tweeter_logo_white.png' %}">
+						</div>
+						<div class="mail">
+							<img src="{% static 'cpi/closed-envelope-white.png' %}">
+						</div>
+					</div>
+					<div class="bottom-edge"></div>
+					<div class="bottom">
+						<a href=""><p>{% trans 'PROČITAJ VIŠE' %}</p></a>
+					</div>
+					<div class="bottom-edge-middle"></div>
+				</div>
+				<div class="lower_slide">
+					<p class="title">Mapiranje mesta sećanja u 10 gradova u Srbiji</p>
+					<p class="description">CPI je pokrenuo novi projekat u 2019. godini „Budi glas a ne eho – Mapiranje mesta sećanja u 10 gradova u Srbiji“</p>
+					<div class="link">
+						<img src="{% static 'cpi/crvena_strelica.png' %}" alt="red_arrow">
+					</div>
+					<div class="social">
+						<a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812">
+							<div class="fb">
+								<img src="{% static 'cpi/fb_logo_white.png' %}">
+							</div>
+						</a>
+						<div class="tweet">
+							<img src="{% static 'cpi/tweeter_logo_white.png' %}">
+						</div>
+						<div class="mail">
+							<img src="{% static 'cpi/closed-envelope-white.png' %}">
+						</div>
+					</div>
+					<div class="bottom-edge"></div>
+					<div class="bottom">
+						<a href=""><p>PROČITAJ VIŠE</p></a>
+					</div>
+					<div class="bottom-edge-middle"></div>
+				</div>
+				<div class="lower_slide">
+					<p class="title">Mapiranje mesta sećanja u 10 gradova u Srbiji</p>
+					<p class="description">CPI je pokrenuo novi projekat u 2019. godini „Budi glas a ne eho – Mapiranje mesta sećanja u 10 gradova u Srbiji“</p>
+					<div class="link">
+						<img src="{% static 'cpi/crvena_strelica.png' %}" alt="red_arrow">
+					</div>
+					<div class="social">
+						<div class="fb">
+							<img src="{% static 'cpi/fb_logo_white.png' %}">
+						</div>
+						<div class="tweet">
+							<img src="{% static 'cpi/fb_logo_white.png' %}">
+						</div>
+						<div class="mail">
+							<img src="{% static 'cpi/closed-envelope-white.png' %}">
+						</div>
+					</div>
+					<div class="bottom-edge"></div>
+					<div class="bottom">
+						<a href=""><p>PROČITAJ VIŠE</p></a>
+					</div>
+					<div class="bottom-edge-middle"></div>
+				</div>
+				<div class="lower_slide">
+					<p class="title">Mapiranje mesta sećanja u 10 gradova u Srbiji</p>
+					<p class="description">CPI je pokrenuo novi projekat u 2019. godini „Budi glas a ne eho – Mapiranje mesta sećanja u 10 gradova u Srbiji“</p>
+					<div class="link">
+						<img src="{% static 'cpi/crvena_strelica.png' %}" alt="red_arrow">
+					</div>
+					<div class="social">
+						<div class="fb">
+							<img src="{% static 'cpi/fb_logo_white.png' %}">
+						</div>
+						<div class="tweet">
+							<img src="{% static 'cpi/tweeter_logo_white.png' %}">
+						</div>
+						<div class="mail">
+							<img src="{% static 'cpi/closed-envelope-white.png' %}">
+						</div>
+					</div>
+					<div class="bottom-edge"></div>
+					<div class="bottom">
+						<a href=""><p>PROČITAJ VIŠE</p></a>
+					</div>
+					<div class="bottom-edge-middle"></div>
+				</div>
+				<div class="lower_slide">
+					<p class="title">Mapiranje mesta sećanja u 10 gradova u Srbiji</p>
+					<p class="description">CPI je pokrenuo novi projekat u 2019. godini „Budi glas a ne eho – Mapiranje mesta sećanja u 10 gradova u Srbiji“</p>
+					<div class="link">
+						<img src="{% static 'cpi/crvena_strelica.png' %}" alt="red_arrow">
+					</div>
+					<div class="social">
+						<div class="fb">
+							<img src="{% static '' %}">
+						</div>
+						<div class="tweet">
+							<img src="{% static '' %}">
+						</div>
+						<div class="mail">
+							<img src="{% static 'cpi/closed-envelope-white.png' %}">
+						</div>
+					</div>
+					<div class="bottom-edge"></div>
+					<div class="bottom">
+						<a href=""><p>PROČITAJ VIŠE</p></a>
+					</div>
+					<div class="bottom-edge-middle"></div>
+				</div>
+			</div>
+		</div>
+		<div class="content-mobile">
+			<div class="a-main">
+			    <div class="main-image"><img src="{{ aktuelnosti.0.Slika_mobile.url }}"></div>
+			    <div class="main-title">{{ aktuelnosti.0.Ime }}</div>
+			    <div class="main-description">{{ aktuelnosti.0.Opis|safe }}</div>
+			    <div class="main-link">
+			    	<div class="l-left"><p>PROČITAJ VIŠE</p></div>
+			    	<div class="l-right"><img src="{% static 'cpi/strelica.png' %}"></div>
+			    </div>
+		    </div>
+		    <div class="a-down">
+			    <div class="down-left">
+			    	<img src="{{ aktuelnosti.1.Slika_mobile.url }}">
+			    </div>
+			    <div class="down-right"><p>{{ aktuelnosti.1.Ime }}</p></div>
+		    </div>  
+		    <div class="a-down">
+			    <div class="down-left">
+			    	<img src="{{ aktuelnosti.2.Slika_mobile_small.url }}">
+			    </div>
+			    <div class="down-right"><p>{{ aktuelnosti.2.Ime }}</p></div>
+		    </div>  
+		    <div class="a-down">
+			    <div class="down-left">
+			    	<img src="{{ aktuelnosti.3.Slika_mobile_small.url }}">
+			    </div>
+			    <div class="down-right"><p>{{ aktuelnosti.3.Ime }}</p></div>
+		    </div>
+		    <div class="a-down">
+			    <div class="down-left">
+			    	<img src="{{ aktuelnosti.4.Slika_mobile_small.url }}">
+			    </div>
+			    <div class="down-right"><p>{{ aktuelnosti.4.Ime }}</p></div>
+		    </div>
+		</div>
+		<div class="bottom_right">
+			<div class="bottom_right_left">
+				<p>{% trans 'AKTUELNOSTI' %}</p>
+			</div>
+			<a href="{% url 'aktuelnosti' %}">
+				<div class="bottom_right_right">
+					<img src="{% static 'cpi/crvena_strelica.png' %}" alt="arrow">
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="projects">
+		<div class="section_title">
+			<p class="title_text">{% trans 'PROJEKTI' %}</p>
+			<div class="title_underbar"></div>
+	    </div>
+	    <div class="projects_slider">
+	    	{% if projekti.count > 0 %}
+                {% if 'en' not in request.path %}
+                    {% for projekat, num in projekti|zip:projekti_nums %}
+                        <div class="project-slide-wrapper">
+					    	<div class="projects_slide">
+					    		<div class="project_num">{{ num }}</div>
+					    		<div class="project_title">{{ projekat.Ime }}</div>
+					    		<div class="project_description">{{ projekat.Opis|safe|truncatewords:20 }}</div>
+					    		<div class="project_link">
+					    			<a href="{% url 'cpi-projekti-detalji' projekat.id %}"><p>{% trans 'SAZNAJ VIŠE' %}</p></a>
+					    		</div>
+					    	</div>
+				    	</div>
+				    {% endfor %}
+				{% else %}
+				    {% for projekat, num in projekti|zip:projekti_nums %}
+				        <div class="project-slide-wrapper">
+					    	<div class="projects_slide">
+					    		<div class="project_num">{{ num }}</div>
+					    		<div class="project_title">{{ projekat.Ime_en }}</div>
+					    		<div class="project_description">{{ projekat.Opis_en|safe|truncatewords:20 }}</div>
+					    		<div class="project_link">
+					    			<a href="{% url 'cpi-projekti-detalji' projekat.id %}"><p>{% trans 'SAZNAJ VIŠE' %}</p></a>
+					    		</div>
+					    	</div>
+				    	</div>
+				    {% endfor %}
+				{% endif %}
+			{% else %}
+			    <div class="project-slide-wrapper">
+		    	    <div class="projects_slide">
+			    		<div class="project_num">02.</div>
+				    	<div class="project_title">Istraživanja</div>
+				    	<div class="project_description">Istorijska istraživanja koristeći primarne izvore za analizu istorijskih narativa</di>
+			    	    </div>
+			    		<div class="project_link">
+			    			<p>SAZNAJ VIŠE</p>
+			    		</div>
+		    	    </div>
+	            </div>
+		        <div class="project-slide-wrapper">
+			    	<div class="projects_slide">
+			    		<div class="project_num">03.</div>
+			    		<div class="project_title">Istraživanja</div>
+			    		<div class="project_description">Istorijska istraživanja koristeći primarne izvore za analizu istorijskih narativa</div>
+			    		<div class="project_link">
+			    			<p>SAZNAJ VIŠE</p>
+			    		</div>
+			    	</div>
+			    </div>
+			    <div class="project-slide-wrapper">
+			    	<div class="projects_slide">
+			    		<div class="project_num">04.</div>
+			    		<div class="project_title">Istraživanja</div>
+			    		<div class="project_description">Istorijska istraživanja koristeći primarne izvore za analizu istorijskih narativa</div>
+			    		<div class="project_link">
+			    		    <p>SAZNAJ VIŠE</p>
+			    	    </div>
+			    	</div>
+			    </div>
+			{% endif %}
+		</div>	
+	    <div class="slider_controls">
+	    	<div class="prev_button"><img  src="{% static 'cpi/crvena_strelica_rotated.png' %}"></div>
+	    	<div class="next_button"><img src="{% static 'cpi/crvena_strelica.png' %}"></div>
+	    </div>
+	</div>
+	<div class="gallery">
+	    <div class="title_section">
+	        <div class="title_text">{% trans 'FOTO GALERIJA' %}</div>
+	        <div class="title_underbar"></div>
+	    </div>
+	    <div class="gallery_slider">
+		    <div class="galery_slide">
+		        <div class="gallery_inner">
+		        	<div class="left">
+		        		<a href="">
+			        		<div class="left-top">
+			        			<img src="">
+			        		</div>
+		        	    </a>
+		        		<div class="left-bottom">
+		        			<a href="">
+		        				<div class="left-bottom-left"><img src=""></div>
+		        		    </a>
+		        		    <a href="">
+		        				<div class="left-bottom-right"><img src=""></div>
+		        		    </a>
+		        		</div>
+		        	</div>
+		        	<div class="right">
+		        		<div class="right-top">
+		        			<a href="">
+		        				<div class="right-top-left"><img src=""></div>
+		        		    </a>
+		        			<a href="">
+		        				<div class="right-top-right"><img src=""></div>
+		        		    </a>
+		        		</div>
+		        		<div class="right-bottom">
+		        			<a href="">
+		        				<div class="right-bottom-left"><img src=""></div>
+		        		    </a>
+		        			<a href="">
+		        			<div class="right-bottom-right"><img src=""></div>
+		        		    </a>
+		        		</div>
+		        	</div>
+		        </div>
+		    </div>
+		    <div class="galery_slide">
+		        <div class="gallery_inner">
+		        	<div class="left">
+		        		<a href="">
+			        		<div class="left-top">
+			        			<img src="">
+			        		</div>
+		        		</a>
+		        		<div class="left-bottom">
+		        			<a href="">
+			        			<div class="left-bottom-left">
+			        				<img src="">
+			        			</div>
+		        		    </a>
+		        		    <a href="">
+			        			<div class="left-bottom-right">
+			        				<img src="">
+			        			</div>
+		        		    </a>
+		        		</div>
+		        	</div>
+		        	<div class="right">
+		        		<div class="right-top">
+		        			<a href="">
+			        			<div class="right-top-left">
+			        				<img src="">
+			        			</div>
+		        		    </a>
+		        		    <a href="">
+			        			<div class="right-top-right">
+			        				<img src="">
+			        			</div>
+		        		    </a>
+		        		</div>
+		        		<div class="right-bottom">
+		        			 <a href="">
+			        			<div class="right-bottom-left">
+			        				<img src="">
+			        			</div>
+		        		    </a>
+		        		    <a href="">
+			        			<div class="right-bottom-right">
+			        				<img src="">
+			        			</div>
+		        		    </a>
+		        		</div>
+		        	</div>
+		        </div>
+		    </div>
+		</div>
+		<div class="controls_section">
+			<div class="controls">
+				<div class="left-box"><img src="{% static 'cpi/crvena_strelica_rotated.png' %}"></div>
+				<div class="right-box"><img src="{% static 'cpi/crvena_strelica.png' %}"></div>
+			</div>
+		</div>
+	</div>
+	<div class="gallery-mobile">
+		<div class="title_section">
+	        <div class="title_text">{% trans 'FOTO GALERIJA' %}</div>
+	        <div class="title_underbar"></div>
+	    </div>
+	    <div class="gallery-imgs">
+	    	<div class="imgs-slide">
+		    	<img class="top"src="">
+		    	<img class="lower-left" src="">
+		    	<img class="lower-right" src="">
+		    	<img class="lower-left" src="">
+		    	<img class="lower-right" src="">
+		    </div>
+		    <div class="imgs-slide">
+		    	<img class="top"src="">
+		    	<img class="lower-left" src="">
+		    	<img class="lower-right" src="">
+		    	<img class="lower-left" src="">
+		    	<img class="lower-right" src="">
+		    </div>
+		    <div class="imgs-slide">
+		    	<img class="top"src="">
+		    	<img class="lower-left" src="">
+		    	<img class="lower-right" src="">
+		    	<img class="lower-left" src="">
+		    	<img class="lower-right" src="">
+		    </div>
+	    </div>
+	    <div class="gallery-link">
+	    	<div class="bottom_right_left">
+				<p>{% trans 'GALERIJA' %}</p>
+			</div>
+			<a href="{% url 'cpi-galerija' %}">
+				<div class="bottom_right_right">
+					<img src="{% static 'cpi/crvena_strelica.png' %}" alt="arrow">
+				</div>
+			</a>
+	    </div>
+	</div>
+	<div class="video">
+		<div class="title_section">
+			<div class="title_text">VIDEO</div>
+			<div class="title_underbar"></div>
+		</div>
+		<div class="video_gallery">
+			<div class="left">
+				<a href=""><div class="left-top"><img src=""></div></a>
+				<div class="left-bottom"><p>Javni čas - STudentski protesti tokom '90ih godina u Beogradu</p></div>
+			</div>
+			<div class="right">
+				<div class="right-top"><img src=""></div>
+				<div class="right-bottom"><img src=""></div>
+			</div>
+		</div>
+		<div class="video_gallery_mobile">
+			<video class="videoR" width="300" height="168" controls><source src="" type="video/mp4"></video>
+			<video class="videoR" width="300" height="168" controls><source src="" type="video/mp4"></video>
+			<video class="video3"width="300" height="168" controls><source src="" type="video/mp4"></video>
+		</div>
+		<div class="page_link">
+			<div class="left"><p>VIDEO</p></div>
+			<div class="right"><img src="{% static 'cpi/crvena_strelica.png' %}"></div>
+		</div>	
+	</div>
+	<div class="publications_section">
+		<div class="p_title_section">
+			<div class="p_title_text">{% trans 'PUBLIKACIJE' %}</div>
+			<div class="p_title_underbar"></div>
+		</div>
+		<div class="publications_content">
+			<div class="publications_slider">
+				<div class="p-slide-wrapper">
+					<div class="publications_slide">
+						<div class="p-slide-upper">
+							<img src="{% static 'cpi/knjiga_pisarri.png' %}">
+							<div class="red_underbar"></div>
+						</div>
+						<div class="p-slide-lower">
+							<div class="p-descr">Stradanje Roma u Srbiji za vreme holokausta</div>
+							<div class="p-author">Milovan Pisarri</div>
+							<div class="p-link">
+								<div class="link-left">
+									<p>DOWNLOAD PDF</p>
+								</div>
+								<div class="link-right">
+									<img src="{% static 'cpi/strelica.png' %}">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="p-slide-wrapper">
+					<div class="publications_slide">
+						<div class="p-slide-upper">
+							<img src="{% static 'cpi/knjiga_1.png' %}">
+							<div class="red_underbar"></div>
+						</div>
+						<div class="p-slide-lower">
+							<div class="p-descr"></div>
+							<div class="p-author"></div>
+							<div class="p-link">
+								<div class="link-left">
+									<p>DOWNLOAD PDF</p>
+								</div>
+								<div class="link-right">
+									<img src="{% static 'cpi/strelica.png' %}">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                <div class="p-slide-wrapper">
+					<div class="publications_slide">
+						<div class="p-slide-upper">
+							<img src="{% static 'cpi/knjiga_3.png' %}">
+							<div class="red_underbar"></div>
+						</div>
+						<div class="p-slide-lower">
+							<div class="p-descr"></div>
+							<div class="p-author"></div>
+							<div class="p-link">
+								<div class="link-left">
+									<p>DOWNLOAD PDF</p>
+								</div>
+								<div class="link-right">
+									<img src="{% static 'cpi/strelica.png' %}">
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
+                <div class="p-slide-wrapper">
+					<div class="publications_slide">
+						<div class="p-slide-upper">
+							<img src="">
+							<div class="red_underbar"></div>
+						</div>
+						<div class="p-slide-lower">
+							<div class="p-descr"></div>
+							<div class="p-author"></div>
+							<div class="p-link">
+								<div class="link-left">
+									<p>DOWNLOAD PDF</p>
+								</div>
+								<div class="link-right">
+									<img src="{% static 'cpi/strelica.png' %}">
+								</div>
+							</div>
+						</div>
+					</div>
+			    </div>
+			    <div class="p-slide-wrapper">
+					<div class="publications_slide">
+						<div class="p-slide-upper">
+							<img src="">
+							<div class="red_underbar"></div>
+						</div>
+						<div class="p-slide-lower">
+							<div class="p-descr"></div>
+							<div class="p-author"></div>
+							<div class="p-link">
+								<div class="link-left">
+									<p>DOWNLOAD PDF</p>
+								</div>
+								<div class="link-right">
+									<img src="{% static 'cpi/strelica.png' %}">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="p-slide-wrapper">
+					<div class="publications_slide">
+						<div class="p-slide-upper"><img src=""></div>
+						<div class="p-slide-lower">
+							<div class="p-descr"></div>
+							<div class="p-author"></div>
+							<div class="p-link">
+								<div class="link-left">
+									<p>DOWNLOAD PDF</p>
+								</div>
+								<div class="link-right">
+									<img src="{% static 'cpi/strelica.png' %}">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="p-slide-wrapper">
+					<div class="publications_slide">
+						<div class="p-slide-upper"><img src=""></div>
+						<div class="p-slide-lower">
+							<div class="p-descr"></div>
+							<div class="p-author"></div>
+							<div class="p-link">
+								<div class="link-left">
+									<p>DOWNLOAD PDF</p>
+								</div>
+								<div class="link-right">
+									<img src="{% static 'cpi/crvena_strelica.png' %}">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="control-arrows">
+				<div class="p-left-box" id="box-control-left"><img src="{% static 'cpi/crvena_strelica_rotated.png' %}"></div>
+				<div class="p-right-box" id="box-control-right"><img src="{% static 'cpi/crvena_strelica.png' %}"></div>
+	        </div> 
+		</div>
+		<br style="clear: both;">
+	</div>
+	<nav style="position: absolute; top: 0%; width: 100%">
+		<a href="{% url 'cpi-naslovna' %}">
+			<div class="logo-wrapper">
+		        <div class="logo">
+			        <div id="div1">
+			          <p>C</p>
+			          <img src="{% static 'cpi/Ellipse_1.png' %}">
+			        </div>
+			        <div id="div2">
+			          <p>P</p>
+			          <img class="tacka_2" src="{% static 'cpi/Ellipse_2.png' %}">
+			        </div>
+			        <div id="div3">
+			          <p>I</p>
+			          <img src="{% static 'cpi/Ellipse_3.png' %}">
+			        </div>
+	            </div>
+	        </div>
+            <div class="logo-white">
+            	<img src="{% static 'cpi/cpi_logo.png' %}">
+            </div>
+        </a>
+	    <ul class="nav-links">
+	      <li class="o_nama">
+	        <a href="{% url 'o-nama' %}">{% trans 'O NAMA' %}</a>
+	        {% if 'o_nama' in request.path %}
+	            <p class="onam1"></p>
+	        {% else %}
+	            <p class="onam2"></p>
+	        {% endif %}
+	      </li>
+	      <li class="nav-projekti">
+	        <a href="{% url 'cpi-projekti' %}">{% trans 'PROJEKTI' %}</a>
+	        {% if 'projekti' in request.path %}
+	            <p class="pro1"></p>
+	        {% else %}
+	            <p class="pro2"></p>
+	        {% endif %}
+	      </li>
+	      <li class="h_tours">
+	        <a href="{% url 'cpi-istorijske_ture' %}">{% trans 'ISTORIJSKE TURE' %}</a>
+	        {% if 'istorijske_ture' in request.path %}
+	            <p class="ist1"></p>
+	        {% else %}
+	            <p class="ist2"></p>
+	        {% endif %}
+	      </li>
+	      <li class="publications">
+	        <a href="{% url 'cpi-publikacije' %}">{% trans 'PUBLIKACIJE' %}</a>
+	        {% if 'publikacije' in request.path %}
+	            <p class="pub1"></p>
+	        {% else %}
+	            <p class="pub2"></p>
+	        {% endif %}
+	      </li>
+	      <li id="langs">
+	        <span id="langs-img"><img src="vektor.png"></span><span><a href="#">ENG</a></span><span><a href="#">SRB</span></a>
+	      </li>
+	    </ul>
+	      {% if 'en' not in request.path %}
+	        <div class="nav-langs">
+	        	<div class="form-box">
+	        	    <form class="search-form" action="pretraga/" autocomplete="off">
+	        	  	    <input class="search-box-input" type="text" placeholder="Search" name="q">
+			            <button class="magnifying-glass" type="submit">
+			          	    <img src="{% static 'cpi/vektor.png' %}">
+			            </button>
+			        </form>
+		        </div>
+	            <div class="light"><a href="{{ url }}">SRB</a></div>
+	            <div class="li-regular"><a href="/en{{ url }}">ENG</a></div>
+	        </div>
+	      {% else %}
+	        <ul class="nav-langs">
+	          <li class="form-box">
+	        	  <form class="search-form" action="{% url 'cpi-pretraga' %}">
+	        	  	  <input class="search-box-input" type="text" placeholder="Search" name="q">
+			          <button class="magnifying-glass" type="submit">
+			          	<img src="{% static 'cpi/vektor.png' %}">
+			          </button>
+			      </form>
+		       </li>
+	          <li class="li-regular"><a href="{{ url }}">SRB</a></li>
+	          <li class="light"><a href="/en{{ url }}">ENG</a></li>
+	        </ul>
+	      {% endif %}
+	    </div>
+	    <div class="burger">
+	      <div class="line1"></div>
+	      <div class="line2"></div>
+	      <div class="line3"></div>
+	    </div>
+    </nav>
+    <div class="reservations">
+  	    <div>
+    	    <a href="{% url 'cpi-prijava' %}"><h2>{% trans 'Rezervišite turu' %}</h2></a>
+    	    <p>{% trans 'Jednodnevna javna vodjenja, studijske posete i višednevne istorijske ture na lokacije od istorijskog značaja' %}</p>
+        </div>
+    </div>
+	<div class="footer">
+		<div class="footer-content">
+		    <div class="content-box">
+				<div class="inside-box1">
+					<div class="inner1">
+						<div class="i-left">
+							<img src="{% static 'cpi/Rectangle62.png' %}">
+						</div>
+						<div class="i-right">
+						    <a href="{% url 'o-nama' %}"><p>{% trans 'O nama' %}</p></a>
+						</div>
+					</div>
+					<div class="inner2">
+						<div class="i-left">
+							<img src="{% static 'cpi/Rectangle62.png' %}">
+						</div>
+						<div class="i-right">
+						    <a href="{% url 'cpi-projekti' %}"><p>{% trans 'Projekti' %}</p></a>
+						</div>
+					</div>
+					<div class="inner3">
+						<div class="i-left">
+							<img src="{% static 'cpi/Rectangle62.png' %}">
+						</div>
+						<div class="i-right">
+						    <a href="{% url 'cpi-istorijske_ture' %}"><p>{% trans 'Istorijske ture' %}</p></a>
+						</div>
+					</div>
+					<div class="inner4">
+						<div class="i-left">
+							<img src="{% static 'cpi/Rectangle62.png' %}">
+						</div>
+						<div class="i-right">
+						    <a href="{% url 'cpi-publikacije' %}"><p>{% trans 'Publikacije' %}</p></a>
+						</div>
+					</div>
+					<div class="inner5">
+						<div class="i-left">
+							<img  src="{% static 'cpi/Rectangle62.png' %}">
+						</div>
+						<div class="i-right">
+						    <p>{% trans 'Aktivnosti' %}</p>
+						</div>
+					</div>
+				</div>
+				<div class="inside-box2">
+					<div class="title-box1">
+						<div class="title-box1-text">
+						    <p>{% trans 'Pratite nas' %}</p>
+						</div>
+					</div>
+					<div class="social-box-upper">
+						<div class="fb-box">
+							<a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812"><img class="fb-regular" src="{% static 'cpi/fb-gray-logo.png' %}"></a>
+							<a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812"><img class="fb-hover" src="{% static 'cpi/facebook.png' %}"></a>
+						</div>
+						<div class="tweeter-box">
+							<img class="regular" src="{% static 'cpi/tweeter.png' %}">
+							<img class="hover" src="{% static 'cpi/tweeter-red.png' %}">
+
+						</div>
+					</div>
+					<div class="social-box-lower">
+						<div class="instagram-box">
+							<img class="outer-insta" src="{% static 'cpi/instagram.png' %}">
+							<img class="inner-insta" src="{% static 'cpi/shape.png' %}">
+							<img class="insta-hover" src="{% static 'cpi/Instagram-red.png' %}">
+						</div>
+						<div class="youtube-box">
+							<img class="yt-1" src="{% static 'cpi/screen.png' %}">
+							<img class="yt-2" src="{% static 'cpi/play.png' %}">
+							<img class="yt-hover" src="{% static 'cpi/youtube-red.png' %}">
+						</div>
+					</div>
+				</div>
+				<div class="inside-box3">
+					<div class="title-box2">
+						<div class="title-box2-text">
+						    <p>{% trans 'Kontakt' %}</p>
+						</div>
+					</div>
+					<div class="contact-box">
+						<div class="letter-img">
+							<img src="{% static 'cpi/letter.png' %}">
+						</div>
+						<div class="address-address">
+							<p>centarzaprimenjenuistoriju@gmail.com</p>
+						   <!-- <p style="font-size: 1.171vw; font-family: Gilroy; font-style: normal; font-weight: 800; color: #E84F45; letter-spacing: 0.03em;"></p>-->
+						</div>
+					</div>
+					<div class="tel-box">
+						<div class="tel-box-img">
+							<img src="{% static 'cpi/tel.png' %}">
+						</div>
+						<div class="num">
+						    <p>+381 1 123 456</p>
+						</div>
+					</div>
+					<div class="international-logo">
+						<img src="{% static 'cpi/ICSC_logo.png' %}">
+					</div>
+				</div>
+				<div class="inside-box4">
+					<div class="address-box">
+						<div class="adresa">
+						    <p>{% trans 'Adresa' %}</p>
+						</div>
+					</div>
+					<div class="address-text">
+						<div class="street-city">
+						    <p>Balkanska 35-39, Beograd</p>
+						</div>
+					</div>
+					<div class="floor-doors">
+						<div class="wrapp">
+						    <p>3. sprat, kancelarija 7</p>
+						</div>
+					</div>
+				</div>
+            </div>
+		</div>
+		<div class="footer-content-mobile">
+			<div class="info-contact">
+				<div class="address">
+					<p class="address-title">Adresa</p>
+					<p class="address-address">Balkanska 35-39, Beograd 3. sprat, kancelarija 7</p>
+				</div>
+				<div class="kontakt">
+					<p class="kontakt-title">Kontakt</p>
+					<p class="email">centarzaprimenjenuistoriju@gmail</p>
+					<p class="phone">+381 1 234 567</p>
+				</div>
+				<br style="clear: both;">
+			</div>
+			<div class="follow_us">
+				<div class="title-box1">
+					<div class="title-box1-text">
+					    <p>{% trans 'Pratite nas' %}</p>
+					</div>
+				</div>
+				<div class="social-box-upper">
+					<div class="fb-box">
+						<a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812"><img class="fb-hover" src="{% static 'cpi/facebook.png' %}"></a>
+					</div>
+					<div class="tweeter-box">
+						<img class="hover" src="{% static 'cpi/tweeter-red.png' %}">
+					</div>
+				</div>
+				<div class="social-box-lower">
+					<div class="instagram-box">
+						<!-- <img class="outer-insta" src="{% static 'cpi/instagram.png' %}">
+						<img class="inner-insta" src="{% static 'cpi/shape.png' %}"> -->
+						<img class="insta-hover" src="{% static 'cpi/Instagram-red.png' %}">
+					</div>
+					<div class="youtube-box">
+						<!-- <img class="yt-1" src="{% static 'cpi/screen.png' %}">
+						<img class="yt-2" src="{% static 'cpi/play.png' %}"> -->
+						<img class="yt-hover" src="{% static 'cpi/youtube-red.png' %}">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom" style="color:#FFFFFF;">
+			<img class="desktop-image" src="{% static 'cpi/Copyright.png' %}" style="margin-top: 4vh; margin-left: 2vw;">
+			<img class="mobile-image1" src="{% static 'cpi/copyright-mobile.png' %}">
+			<img class="mobile-image2" src="{% static 'cpi/up-arrow.png' %}">
+		</div>
+	</div>
+    <!-- <script src="{% static 'cpi/app.js' %}"></script> -->
+    <script src="{% static 'cpi/app2.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+    	$('.a_lower').slick({
+    		infinite: true,
+			slidesToShow: 3,
+			slidesToScroll: 3,
+			arrows: false,
+			autoplay: true,
+			autoplaySpeed: 5000
+    	});
+    </script>
+    <script>
+    	$('.slider').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 4000,
+			arrows: false,
+			dots: false,
+    	});
+    </script>
+    <script>
+    	$('.projects_slider').slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			variableWidth: true,
+			infinite: false,
+			arrows: true,
+			dots: true,
+			prevArrow: $('.prev_button'),
+			nextArrow: $('.next_button')
+    	});
+    </script>  
+    <script>
+    	$('.gallery_slider').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			// variableWidth: true,
+			infinite: false,
+			arrows: true,
+			dots: false,
+			prevArrow: $('.left-box'),
+			nextArrow: $('.right-box')
+    	});
+    </script>
+    <script>
+    	$('.publications_slider').slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			variableWidth: true,
+			infinite: false,
+			arrows: true,
+			dots: true,
+			prevArrow: $('.p-left-box'),
+			nextArrow: $('.p-right-box')
+    	});
+    </script> 
+      <script>
+    	$('.gallery-imgs').slick({
+    		infinite: false,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			autoplay: false,
+			dots: false
+    	});
+    </script>
+   <!--  <script>
+    	$(document).ready(function(){
+    		$('.publications_slide').hover(function() {
+    			$('#box-control-left').css('display', "none");
+    		}, function() {
+            $('#box-control-left').css('display', 'flex');
+    		});
+    	});
+    </script> 
+    <script>
+		$(document).ready(function(){
+			$('.publications_slide').hover(function() {
+				$('#box-control-right').css('display', "none");
+			}, function() {
+	        $('#box-control-right').css('display', 'flex');
+			});
+		});	
+    </script> -->
+     <script>
+		$(document).ready(function(){
+			$('.magnifying-glass').hover(function() {
+			    $('.search-box-input').css('visibility', "visible");
+			});	
+		});
+
+    </script>
+     <script>
+		$(document).ready(function(){
+			$('nav').mouseleave(function() {
+			    $('.search-box-input').css('visibility', "hidden");
+			});	
+		});
+
+    </script>
+     <script>
+		$(document).ready(function(){
+			$('.magnifying-glass').hover(function() {
+			    $('.input-off').css('display', "block");
+			});	
+		});
+
+    </script>
+     <script>
+		$(document).ready(function(){
+			$('.input-off').click(function() {
+			    $('.search-box-input').css('display', "none");
+			});	
+		});
+    </script>
+     <script>
+		$(document).ready(function(){
+			$('.input-off').click(function() {
+			    $('.input-off').css('display', "none");
+			});	
+		});
+    </script>
+    <script>
+		$(document).ready(function(){
+			$('.menu-close-box').click(function() {
+			    $('.menu-dropdown').css('transform', "translateX(100%)");
+			});	
+		});
+
+    </script>
+     <script>
+		$(document).ready(function(){
+			$('.burger').click(function() {
+			    $('.menu-dropdown').css('transform', "translateX(0%)");
+			});	
+		});
+    </script>
+  <!--   <script>
+		$(document).ready(function(){
+			$('.publications_slide').mouseenter(function() {
+			    $('.p-left-box').css('visibility', "hidden");
+			});	
+
+			$('.publications_slide').mouseleave(function() {
+			    $('.p-left-box').css('visibility', "visible");
+			});	
+		});
+    </script> -->
+   <!--  <script>
+		$(document).ready(function(){
+			$('.publications_slide').mouseenter(function() {
+			    $('.control-arrows').css('visibility', "hidden");
+			});	
+
+			$('.publications_slide').mouseleave(function() {
+			    $('.control-arrows').css('visibility', "visible");
+			});	
+		});
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,151 @@
+{% extends 'cpi/base.html' %}
+{% load i18n %}
+{% load static %}
+{% load class_tag %}
+{% block content %}
+   <nav style="width: 100%;">
+		<a href="{% url 'cpi-naslovna' %}">
+			<div class="logo-wrapper">
+		        <div class="logo">
+			        <div id="div1">
+			          <p>C</p>
+			          <img src="{% static 'cpi/Ellipse_1.png' %}">
+			        </div>
+			        <div id="div2">
+			          <p>P</p>
+			          <img class="tacka_2" src="{% static 'cpi/Ellipse_2.png' %}">
+			        </div>
+			        <div id="div3">
+			          <p>I</p>
+			          <img src="{% static 'cpi/Ellipse_3.png' %}">
+			        </div>
+	            </div>
+	        </div>
+            <div class="logo-white">
+            	<img src="{% static 'cpi/cpi_logo.png' %}">
+            </div>
+        </a>
+	    <ul class="nav-links">
+	      <li class="o_nama">
+	        <a href="{% url 'o-nama' %}">{% trans 'O NAMA' %}</a>
+	        {% if 'o_nama' in request.path %}
+	            <p class="onam1"></p>
+	        {% else %}
+	            <p class="onam2"></p>
+	        {% endif %}
+	      </li>
+	      <li class="nav-projekti">
+	        <a href="{% url 'cpi-projekti' %}">{% trans 'PROJEKTI' %}</a>
+	        {% if 'projekti' in request.path %}
+	            <p class="pro1"></p>
+	        {% else %}
+	            <p class="pro2"></p>
+	        {% endif %}
+	      </li>
+	      <li class="h_tours">
+	        <a href="{% url 'cpi-istorijske_ture' %}">{% trans 'ISTORIJSKE TURE' %}</a>
+	        {% if 'istorijske_ture' in request.path %}
+	            <p class="ist1"></p>
+	        {% else %}
+	            <p class="ist2"></p>
+	        {% endif %}
+	      </li>
+	      <li class="publications">
+	        <a href="{% url 'cpi-publikacije' %}">{% trans 'PUBLIKACIJE' %}</a>
+	        {% if 'publikacije' in request.path %}
+	            <p class="pub1"></p>
+	        {% else %}
+	            <p class="pub2"></p>
+	        {% endif %}
+	      </li>
+	      <li id="langs">
+	        <span id="langs-img"><img src="vektor.png"></span><span><a href="#">ENG</a></span><span><a href="#">SRB</span></a>
+	      </li>
+	    </ul>
+	      {% if 'en' not in request.path %}
+	        <div class="nav-langs">
+	        	<div class="form-box">
+	        	    <form class="search-form" action="{% url 'cpi-pretraga' %}" autocomplete="off">
+	        	  	    <input class="search-box-input" type="text" placeholder="Search" name="q">
+			            <button class="magnifying-glass" type="submit">
+			          	    <img src="{% static 'cpi/vektor.png' %}">
+			            </button>
+			        </form>
+		        </div>
+	            <div class="light"><a href="{{ url }}">SRB</a></div>
+	            <div class="li-regular"><a href="/en{{ url }}">ENG</a></div>
+	        </div>
+	      {% else %}
+	        <ul class="nav-langs">
+	          <li class="form-box">
+	        	  <form class="search-form" action="{% url 'cpi-pretraga' %}">
+	        	  	  <input class="search-box-input" type="text" placeholder="Search" name="q">
+			          <button class="magnifying-glass" type="submit">
+			          	<img src="{% static 'cpi/vektor.png' %}">
+			          </button>
+			      </form>
+		       </li>
+	          <li class="li-regular"><a href="{{ url }}">SRB</a></li>
+	          <li class="light"><a href="/en{{ url }}">ENG</a></li>
+	        </ul>
+	      {% endif %}
+	    </div>
+	    <div class="burger" id="burger-alt">
+	      <div class="line1"></div>
+	      <div class="line2"></div>
+	      <div class="line3"></div>
+	    </div>
+    </nav>
+    <div class="container">
+		{% if error %}
+		<br>
+		    <p style="color: red; text-align: center;">{% trans 'Molim vas unesite termin za pretragu.' %}</p>
+		{% else %}
+			{% if rezultati %}
+			<br>
+			   <!--  <h2 style="text-align: center;">{% trans 'Rezultati pretrage za' %}: <strong>{{ query }}</strong></h2><br><br><br> -->
+			    <ul style="text-decoration: none;">
+			        {% for rezultat in rezultati %}
+			            {% if rezultat|get_class == 'Publikacija' %}
+					        <li>
+					        <p style="font-family: Gilroy; margin-left: 25%; margin-top: 50px; color: #E84F45; font-size: 22px;">{{ rezultat.Ime }}</p><br>
+					        <a href="{% url 'cpi-publikacije-detalji' rezultat.id %}">
+					        <img src="{{ rezultat.Slika.url}}" style="width: 30%; height:30%; margin-left: 25%;">
+					        </a>
+					        </li>
+					    {% elif rezultat|get_class == 'ClanTima' %}
+					        <li>
+					        <p style="font-family: Gilroy; margin-left: 25%; margin-top: 50px; color: #E84F45; font-size: 22px;">{{ rezultat.Ime }}</p><br>
+					        <a href="{% url 'cpi-tim-detalji' rezultat.id %}">
+					        <img src="{{ rezultat.Slika.url}}" style="width: 30%; height:30%; margin-left: 25%;">
+					        </a>
+					        </li>
+					    {% elif rezultat|get_class == 'IstorijskaTura' %}
+					        <li>
+					        <p style="font-family: Gilroy; margin-left: 25%; margin-top: 50px; color: #E84F45; font-size: 22px;">{{ rezultat.Ime }}</p><br>
+					        <a href="{% url 'tura-detalji' rezultat.id %}">
+					        <img src="{{ rezultat.Slika.url}}" style="width: 30%; height:30%; margin-left: 25%;">
+					        </a>
+					        </li>
+					    {% elif rezultat|get_class == 'Projekat' %}
+					        <li>
+					        <p style="font-family: Gilroy; margin-left: 25%; margin-top: 50px; color: #E84F45; font-size: 22px;">{{ rezultat.Ime }}</p><br>
+					        <a href="{% url 'cpi-projekti-detalji' rezultat.id %}">
+					        <img src="{{ rezultat.Slika.url}}" style="width: 20%; height:20%; margin-left: 25%;">
+					        </a>
+					        </li> 
+					    {% elif rezultat|get_class == 'Fotografija' %}
+					        <li>
+					        	<img src="{{ rezultat.Slika.url}}" style="display: block; margin: 100px auto; width: 50%; height: 50%;">
+					        </li>
+					    {% else %}
+					      
+					    {% endif %}
+			        {% endfor %}
+			    </ul>
+			{% else %}
+			    <p>{% trans 'Ništa nije nađeno za:' %}</p>
+			{% endif %}
+		{% endif %}
+	</div>
+{% endblock content %}

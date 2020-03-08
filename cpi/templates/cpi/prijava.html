@@ -1,0 +1,115 @@
+{% extends 'cpi/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% load i18n %}
+
+{% load static %}
+
+{% block content %}
+	<nav>
+		<a href="{% url 'cpi-naslovna' %}">
+			<div class="logo">
+				<div id="div1">
+					<p>C</p>
+					<img src="{% static 'cpi/Ellipse_1.png' %}">
+				</div>
+				<div id="div2">
+					<p>P</p>
+					<img class="tacka_2" src="{% static 'cpi/Ellipse_2.png' %}">
+				</div>
+				<div id="div3">
+					<p>I</p>
+					<img src="{% static 'cpi/Ellipse_3.png' %}">
+				</div>
+		    </div>
+		    <div class="logo-white">
+            	<img src="{% static 'cpi/cpi_logo.png' %}">
+            </div>
+	    </a>
+		<ul class="nav-links">
+			<li class="o_nama">
+				<a href="{% url 'o-nama' %}">{% trans 'O NAMA' %}</a>
+				{% if 'o_nama' in request.path %}
+		            <p class="onam1"></p>
+		        {% else %}
+		            <p class="onam2"></p>
+		        {% endif %}
+			</li>
+			<li class="nav-projekti">
+				<a href="{% url 'cpi-projekti' %}">{% trans 'PROJEKTI' %}</a>
+				{% if 'projekti' in request.path %}
+		            <p class="pro1"></p>
+		        {% else %}
+		            <p class="pro2"></p>
+		        {% endif %}
+			</li>
+			<li class="h_tours">
+				<a href="{% url 'cpi-istorijske_ture' %}">{% trans 'ISTORIJSKE TURE' %}</a>
+				{% if 'istorijske_ture' in request.path %}
+		            <p class="ist1"></p>
+		        {% else %}
+		            <p class="ist2"></p>
+		        {% endif %}
+			</li>
+			<li class="publications">
+				<a href="{% url 'cpi-publikacije' %}">{% trans 'PUBLIKACIJE' %}</a>
+				{% if 'publikacije' in request.path %}
+		            <p class="pub1"></p>
+		        {% else %}
+		            <p class="pub2"></p>
+		        {% endif %}
+			</li>
+			<li id="langs">
+				<span id="langs-img"><img src="vektor.png"></span><span><a href="#">ENG</a></span><span><a href="#">SRB</span></a>
+			</li>
+		</ul>
+		<div>
+			{% if 'en' not in request.path %}
+	        <ul class="nav-langs">
+	        	<li class="form-box">
+	        	  <form class="search-form" action="pretraga/">
+	        	  	  <input class="search-box-input" type="text" placeholder="Search" name="q">
+			          <button class="magnifying-glass" type="submit">
+			          	<img src="{% static 'cpi/vektor.png' %}">
+			          </button>
+			      </form>
+		        </li>
+	            <li class="light"><a href="{{ url }}">SRB</a></li>
+	            <li class="li-regular"><a href="/en{{ url }}">ENG</a></li>
+	        </ul>
+	      {% else %}
+	        <ul class="nav-langs">
+	          <li class="form-box">
+	        	  <form class="search-form" action="{% url 'cpi-pretraga' %}" autocomplete="off">
+	        	  	  <input class="search-box-input" type="text" placeholder="Search" name="q" autocomplete="off">
+			          <button class="magnifying-glass" type="submit">
+			          	<img src="{% static 'cpi/vektor.png' %}">
+			          </button>
+			      </form>
+		       </li>
+	          <li class="li-regular"><a href="{{ url }}">SRB</a></li>
+	          <li class="light"><a href="/en{{ url }}">ENG</a></li>
+	        </ul>
+	      {% endif %}
+		</div>
+		<div class="burger" id="burger-alt">
+			<div class="line1"></div>
+			<div class="line2"></div>
+			<div class="line3"></div>
+        </div>
+	</nav>
+<div class="content-section" style="margin-bottom: 50px; margin-top: 50px; width: 60%; margin-left: auto; margin-right: auto;">
+	<form method="POST" style="margin-left: 20px;">
+		{% csrf_token %}
+		<fieldset class="form-group">
+		    <legend class="border-bottom mb-4">Prijava za <strong>istorijsku turu</strong></legend>
+		    {{ formular|crispy }}
+		</fieldset>
+		<div class="form-group">
+		    <button class="btn btn-outline-info" type="submit">Prijavite se</button>	
+		</div>
+    </form>
+</div>
+{% endblock content %}
+

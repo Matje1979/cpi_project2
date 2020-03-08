@@ -1,0 +1,110 @@
+{% extends 'cpi/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    <div class="aktuelnost-detalji">
+    	<div class="upper">
+    		<img src="{{ aktuelnost.Slika.url }}" style="width: 100%; height: 570px; object-fit: contain;">
+    	</div>
+    	<div class="lower" style="width: 824px; height: auto; margin-top: 25px; margin-left:243px; margin-right: 374px; margin-bottom: 200px;">
+    		<div class="lower-left"></div>
+    		<div class="lower-right">
+    			<div class="title" style="text-align: center; font-family: Gilroy; font-size: 48px; font-weight: 800; line-height: 50px; color: #E84F45;">{{ aktuelnost.Ime }}</div>
+    			<div class="date" style="text-align: center;">{{ aktuelnost.Datum_objave}}</div>
+    		</div>
+    	</div>
+    </div>
+    <nav style="position: absolute; top: 0%; width: 100%">
+		<a href="{% url 'cpi-naslovna' %}">
+			<div class="logo-wrapper">
+		        <div class="logo">
+			        <div id="div1">
+			          <p>C</p>
+			          <img src="{% static 'cpi/Ellipse_1.png' %}">
+			        </div>
+			        <div id="div2">
+			          <p>P</p>
+			          <img class="tacka_2" src="{% static 'cpi/Ellipse_2.png' %}">
+			        </div>
+			        <div id="div3">
+			          <p>I</p>
+			          <img src="{% static 'cpi/Ellipse_3.png' %}">
+			        </div>
+	            </div>
+	        </div>
+            <div class="logo-white">
+            	<img src="{% static 'cpi/cpi_logo.png' %}">
+            </div>
+        </a>
+	    <ul class="nav-links">
+	      <li class="o_nama">
+	        <a href="{% url 'o-nama' %}">{% trans 'O NAMA' %}</a>
+	        {% if 'o_nama' in request.path %}
+	            <p class="onam1"></p>
+	        {% else %}
+	            <p class="onam2"></p>
+	        {% endif %}
+	      </li>
+	      <li class="nav-projekti">
+	        <a href="{% url 'cpi-projekti' %}">{% trans 'PROJEKTI' %}</a>
+	        {% if 'projekti' in request.path %}
+	            <p class="pro1"></p>
+	        {% else %}
+	            <p class="pro2"></p>
+	        {% endif %}
+	      </li>
+	      <li class="h_tours">
+	        <a href="{% url 'cpi-istorijske_ture' %}">{% trans 'ISTORIJSKE TURE' %}</a>
+	        {% if 'istorijske_ture' in request.path %}
+	            <p class="ist1"></p>
+	        {% else %}
+	            <p class="ist2"></p>
+	        {% endif %}
+	      </li>
+	      <li class="publications">
+	        <a href="{% url 'cpi-publikacije' %}">{% trans 'PUBLIKACIJE' %}</a>
+	        {% if 'publikacije' in request.path %}
+	            <p class="pub1"></p>
+	        {% else %}
+	            <p class="pub2"></p>
+	        {% endif %}
+	      </li>
+	      <li id="langs">
+	        <span id="langs-img"><img src="vektor.png"></span><span><a href="#">ENG</a></span><span><a href="#">SRB</span></a>
+	      </li>
+	    </ul>
+	      {% if 'en' not in request.path %}
+	        <div class="nav-langs">
+	        	<div class="form-box">
+	        	    <form class="search-form" action="pretraga/" autocomplete="off">
+	        	  	    <input class="search-box-input" type="text" placeholder="Search" name="q">
+			            <button class="magnifying-glass" type="submit">
+			          	    <img src="{% static 'cpi/vektor.png' %}">
+			            </button>
+			        </form>
+		        </div>
+	            <div class="light"><a href="{{ url }}">SRB</a></div>
+	            <div class="li-regular"><a href="/en{{ url }}">ENG</a></div>
+	        </div>
+	      {% else %}
+	        <ul class="nav-langs">
+	          <li class="form-box">
+	        	  <form class="search-form" action="#">
+	        	  	  <input class="search-box-input" type="text" placeholder="Search" name="q">
+			          <button class="magnifying-glass" type="submit">
+			          	<img src="{% static 'cpi/vektor.png' %}">
+			          </button>
+			      </form>
+		       </li>
+	          <li class="li-regular"><a href="{{ url }}">SRB</a></li>
+	          <li class="light"><a href="/en{{ url }}">ENG</a></li>
+	        </ul>
+	      {% endif %}
+	    </div>
+	    <div class="burger">
+	      <div class="line1"></div>
+	      <div class="line2"></div>
+	      <div class="line3"></div>
+	    </div>
+    </nav>
+{% endblock content %}

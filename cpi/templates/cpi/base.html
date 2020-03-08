@@ -1,0 +1,298 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<!-- saved from url=(0050)file:///C:/Users/Turisticki%20svet/Desktop/b4.html -->
+<html>
+<head>
+  {% if title %} 
+	    <title>CPI/{{ title }}</title>
+  {% else %}
+      <title>CPI</title>
+  {% endif %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'cpi/favicon.ico' %}">
+
+  <!-- Latest compiled and minified CSS -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
+
+  <!-- jQuery library -->
+ <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+
+  <!-- Popper JS -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> -->
+
+  <!-- Latest compiled JavaScript -->
+ <!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
+  <link rel="stylesheet" href="{% static 'cpi/stylesheet.css' %}">
+  <script src="https://kit.fontawesome.com/b2bccd6173.js" crossorigin="anonymous"></script>
+</head>
+	<body>
+    <div class="menu-dropdown">
+      <div class="menu-close-box">X</div>
+    </div>
+    {% block content %}{% endblock content %}
+    <div class="footer">
+    <div class="footer-content">
+        <div class="content-box">
+        <div class="inside-box1">
+          <div class="inner1">
+            <div class="i-left">
+              <img src="{% static 'cpi/Rectangle62.png' %}">
+            </div>
+            <div class="i-right">
+                <a href="{% url 'o-nama' %}"><p>{% trans 'O nama' %}</p></a>
+            </div>
+          </div>
+          <div class="inner2">
+            <div class="i-left">
+              <img src="{% static 'cpi/Rectangle62.png' %}">
+            </div>
+            <div class="i-right">
+                <a href="{% url 'cpi-projekti' %}"><p>{% trans 'Projekti' %}</p></a>
+            </div>
+          </div>
+          <div class="inner3">
+            <div class="i-left">
+              <img src="{% static 'cpi/Rectangle62.png' %}">
+            </div>
+            <div class="i-right">
+                <a href="{% url 'cpi-istorijske_ture' %}"><p>{% trans 'Istorijske ture' %}</p></a>
+            </div>
+          </div>
+          <div class="inner4">
+            <div class="i-left">
+              <img src="{% static 'cpi/Rectangle62.png' %}">
+            </div>
+            <div class="i-right">
+                <a href="{% url 'cpi-publikacije' %}"><p>{% trans 'Publikacije' %}</p></a>
+            </div>
+          </div>
+          <div class="inner5">
+            <div class="i-left">
+              <img  src="{% static 'cpi/Rectangle62.png' %}">
+            </div>
+            <div class="i-right">
+                <p>{% trans 'Aktivnosti' %}</p>
+            </div>
+          </div>
+        </div>
+        <div class="inside-box2">
+          <div class="title-box1">
+            <div class="title-box1-text">
+                <p>{% trans 'Pratite nas' %}</p>
+            </div>
+          </div>
+          <div class="social-box-upper">
+            <div class="fb-box">
+              <a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812"><img class="fb-regular" src="{% static 'cpi/fb-gray-logo.png' %}"></a>
+              <a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812"><img class="fb-hover" src="{% static 'cpi/facebook.png' %}"></a>
+            </div>
+            <div class="tweeter-box">
+              <img class="regular" src="{% static 'cpi/tweeter.png' %}">
+              <img class="hover" src="{% static 'cpi/tweeter-red.png' %}">
+
+            </div>
+          </div>
+          <div class="social-box-lower">
+            <div class="instagram-box">
+              <img class="outer-insta" src="{% static 'cpi/instagram.png' %}">
+              <img class="inner-insta" src="{% static 'cpi/shape.png' %}">
+              <img class="insta-hover" src="{% static 'cpi/Instagram-red.png' %}">
+            </div>
+            <div class="youtube-box">
+              <img class="yt-1" src="{% static 'cpi/screen.png' %}">
+              <img class="yt-2" src="{% static 'cpi/play.png' %}">
+              <img class="yt-hover" src="{% static 'cpi/youtube-red.png' %}">
+            </div>
+          </div>
+        </div>
+        <div class="inside-box3">
+          <div class="title-box2">
+            <div class="title-box2-text">
+                <p>{% trans 'Kontakt' %}</p>
+            </div>
+          </div>
+          <div class="contact-box">
+            <div class="letter-img">
+              <img src="{% static 'cpi/letter.png' %}">
+            </div>
+            <div class="address-address">
+              <p>centarzaprimenjenuistoriju@gmail.com</p>
+               <!-- <p style="font-size: 1.171vw; font-family: Gilroy; font-style: normal; font-weight: 800; color: #E84F45; letter-spacing: 0.03em;"></p>-->
+            </div>
+          </div>
+          <div class="tel-box">
+            <div class="tel-box-img">
+              <img src="{% static 'cpi/tel.png' %}">
+            </div>
+            <div class="num">
+                <p>+381 1 123 456</p>
+            </div>
+          </div>
+          <div class="international-logo">
+            <img src="{% static 'cpi/ICSC_logo.png' %}">
+          </div>
+        </div>
+        <div class="inside-box4">
+          <div class="address-box">
+            <div class="adresa">
+                <p>{% trans 'Adresa' %}</p>
+            </div>
+          </div>
+          <div class="address-text">
+            <div class="street-city">
+                <p>Balkanska 35-39, Beograd</p>
+            </div>
+          </div>
+          <div class="floor-doors">
+            <div class="wrapp">
+                <p>3. sprat, kancelarija 7</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="footer-content-mobile">
+      <div class="info-contact">
+        <div class="address">
+          <p class="address-title">Adresa</p>
+          <p class="address-address">Balkanska 35-39, Beograd 3. sprat, kancelarija 7</p>
+        </div>
+        <div class="kontakt">
+          <p class="kontakt-title">Kontakt</p>
+          <p class="email">centarzaprimenjenuistoriju@gmail</p>
+          <p class="phone">+381 1 234 567</p>
+        </div>
+        <br style="clear: both;">
+      </div>
+      <div class="follow_us">
+        <div class="title-box1">
+          <div class="title-box1-text">
+              <p>{% trans 'Pratite nas' %}</p>
+          </div>
+        </div>
+        <div class="social-box-upper">
+          <div class="fb-box">
+            <a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812"><img class="fb-hover" src="{% static 'cpi/facebook.png' %}"></a>
+          </div>
+          <div class="tweeter-box">
+            <img class="hover" src="{% static 'cpi/tweeter-red.png' %}">
+          </div>
+        </div>
+        <div class="social-box-lower">
+          <div class="instagram-box">
+            <!-- <img class="outer-insta" src="{% static 'cpi/instagram.png' %}">
+            <img class="inner-insta" src="{% static 'cpi/shape.png' %}"> -->
+            <img class="insta-hover" src="{% static 'cpi/Instagram-red.png' %}">
+          </div>
+          <div class="youtube-box">
+            <!-- <img class="yt-1" src="{% static 'cpi/screen.png' %}">
+            <img class="yt-2" src="{% static 'cpi/play.png' %}"> -->
+            <img class="yt-hover" src="{% static 'cpi/youtube-red.png' %}">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom" style="color:#FFFFFF;">
+      <img class="desktop-image" src="{% static 'cpi/Copyright.png' %}" style="margin-top: 4vh; margin-left: 2vw;">
+      <img class="mobile-image1" src="{% static 'cpi/copyright-mobile.png' %}">
+      <img class="mobile-image2" src="{% static 'cpi/up-arrow.png' %}">
+    </div>
+  </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      var d = "{{ fotka_num }}";
+      $('.gallery-slider-big').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: true,
+        asNavFor: '.gallery-slider-small',
+        initialSlide: d,
+        infinite: true,
+        nextArrow: $('.next'),
+        prevArrow: $('.prev')
+      });
+      $('.gallery-slider-small').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        asNavFor: '.gallery-slider-big',
+        dots: false,
+        centerMode: true,
+        focusOnSelect: true,
+        infinite: true,
+        initialSlide: d,
+        nextArrow: $('.next_small'),
+        prevArrow: $('.prev_small')
+      });
+    });
+    </script>
+    
+    <script>
+    $(document).ready(function(){
+      $('.menu-close-box').click(function() {
+          $('.menu-dropdown').css('transform', "translateX(100%)");
+      }); 
+    });
+    </script>
+
+    <script>
+    $(document).ready(function(){
+      $('.burger').click(function() {
+          $('.menu-dropdown').css('transform', "translateX(0%)");
+      }); 
+    });
+    </script>
+     <script>
+    $(document).ready(function(){
+      $('.magnifying-glass').hover(function() {
+          $('.search-box-input').css('visibility', "visible");
+      }); 
+    });
+
+    </script>
+     <script>
+    $(document).ready(function(){
+      $('nav').mouseleave(function() {
+          $('.search-box-input').css('visibility', "hidden");
+      }); 
+    });
+
+    </script>
+     <script>
+    $(document).ready(function(){
+      $('.magnifying-glass').hover(function() {
+          $('.input-off').css('display', "block");
+      }); 
+    });
+
+    </script>
+     <script>
+    $(document).ready(function(){
+      $('.input-off').click(function() {
+          $('.search-box-input').css('display', "none");
+      }); 
+    });
+    </script>
+     <script>
+    $(document).ready(function(){
+      $('.input-off').click(function() {
+          $('.input-off').css('display', "none");
+      }); 
+    });
+    </script>
+    <script>
+      $('.container-projekti-mobile .Page_slide').slice(0,1).show();
+      $('#load-more').on('click', function() {
+            $('.container-projekti-mobile .Page_slide:hidden').slice(0,1).slideDown();
+            if($('.container-projekti-mobile .Page_slide:hidden').length === 0) {
+                $('#load-more').fadeOut();
+            }
+        });
+    </script>
+  </body>
+</html>
