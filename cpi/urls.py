@@ -25,8 +25,10 @@ urlpatterns = [
     path('projekti/', views.galerija_detalji, name='cpi-projekti'),
     path('projekti_detalji/<int:pk>/', views.projekti_detalji, name='cpi-projekti-detalji'), 
     path('projekti_detalji/<int:pk>/galerija', views.projekat_galerija, name='projekat-galerija'),
+    path('projekti_detalji/<int:pk>/<str:info>', views.projekat_info, name='projekat-info'),
     path('aktuelnost_detalji/<int:pk>/', views.aktuelnost_detalji, name='cpi-aktuelnost-detalji'),
     path('prijava/', views.prijava, name='cpi-prijava'),
+    path('video/', views.video, name='cpi-video'),
 
 ]
 

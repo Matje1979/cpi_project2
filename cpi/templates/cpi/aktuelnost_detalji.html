@@ -2,15 +2,55 @@
 {% load static %}
 {% load i18n %}
 {% block content %}
+    <div class="menu-dropdown">
+			<div class="menu-close-box"><img src="{% static 'cpi/X.png' %}"></div>
+			<p class="menu-title">{% trans 'MENI' %}</p>
+			<ul class="menu-dropdown-list">
+				<li class="list-item"><a href="{% url 'o-nama' %}">{% trans 'O NAMA' %}</a></li>
+				<li class="list-item"><a href="{% url 'cpi-projekti' %}">{% trans 'PROJEKTI' %}</a></li>
+				<li class="list-item" id="i-ture"><a href="{% url 'cpi-istorijske_ture' %}">{% trans 'ISTORIJSKE TURE' %}</a></li>
+				<li class="list-item"><a href="{% url 'cpi-publikacije' %}">{% trans 'PUBLIKACIJE' %}</a></li>
+			</ul>
+			 {% if 'en' not in request.path %}
+		        <ul class="nav-langs" id="nav-langs">
+		            <li class="light"><a href="{{ url }}">SRB</a></li>
+		            <li class="li-regular"><a href="/en{{ url }}">ENG</a></li>
+		            <li class="form-box">
+		        	    <form class="search-form" action="pretraga/" autocomplete="off">
+				            <button class="magnifying-glass" type="submit">
+				                <img src="{% static 'cpi/vektor.png' %}">
+				            </button>
+				            <input class="search-box-input" type="text" placeholder="Search" name="q">
+				            <p class="input-off">X</p>
+				        </form>
+			        </li>
+		        </ul>
+		      {% else %}
+		        <ul class="nav-langs" id="nav-langs">
+		            <li class="li-regular"><a href="{{ url }}">SRB</a></li>
+		            <li class="light"><a href="/en{{ url }}">ENG</a></li>
+		            <li class="form-box">
+		        	    <form class="search-form" action="#">
+				            <button class="magnifying-glass" type="submit">
+				                <img src="{% static 'cpi/vektor.png' %}">
+				            </button>
+				            <input class="search-box-input" type="text" placeholder="Search" name="q">
+				            <p class="input-off">X</p>
+				        </form>
+			       </li>
+		        </ul>
+		      {% endif %}
+		</div>
     <div class="aktuelnost-detalji">
     	<div class="upper">
-    		<img src="{{ aktuelnost.Slika.url }}" style="width: 100%; height: 570px; object-fit: contain;">
+    		<img src="{{ aktuelnost.Slika.url }}">
     	</div>
-    	<div class="lower" style="width: 824px; height: auto; margin-top: 25px; margin-left:243px; margin-right: 374px; margin-bottom: 200px;">
+    	<div class="lower">
     		<div class="lower-left"></div>
     		<div class="lower-right">
-    			<div class="title" style="text-align: center; font-family: Gilroy; font-size: 48px; font-weight: 800; line-height: 50px; color: #E84F45;">{{ aktuelnost.Ime }}</div>
-    			<div class="date" style="text-align: center;">{{ aktuelnost.Datum_objave}}</div>
+    			<div class="title">{{ aktuelnost.Ime }}</div>
+    			<div class="date">{{ aktuelnost.Datum_objave}}</div>
+    			<div class="text">Iako se čini da ekstremno desnih snaga na političkoj sceni svih balkanskih država i nema, odnosno da nisu dovoljno snažne jer nemaju svoje predstavnike u parlamentima, poznavatelji prilika kažu kako to i nije tako. Mnogi političari s desnog političkog spektra često posežu za ekstremno desnim stavovima, ali je njihovo djelovanje uglavnom pragmatične prirode. No, oni koji nastupaju krajnje nacionalistički, šovinistički i rasistički možda nisu u parlamentarnim klupama, ali zato jesu u društvu – snažni i glasni. Povremeno se „istaknu“ marševima i postrojavanjem u središtu glavnih gradova, paljenjem novina neke od nacionalnih manjina, napadima na migrante ili Rome, upadanjem na skupove koji imaju za temu nešto što njihovim visokim patriotskim „standardima“ nije prihvatljivo. No, svi su još daleko od ozbiljnog nastupa u političkim vodama. „Problem kod takvih stranaka jest što traže jednog vođu, da ne kažem Mesiju, koji bi ih okupio na jednom mjestu, a njega još nema“, govori o hrvatskim iskustvima novinar Vanja Majetić. Smatra da je „u mladim i krhkim demokracijama desničarski populizam opasan jer može oslabiti demokratske institucije“, te konstatira kako je „populizam vrlo sličan demagogiji“ te u tom kontekstu „Hrvatska nije ostala pošteđena“. „Glasači se iz raznih, ponajviše ekonomskih razloga, okreću novim opcijama koje podržavaju iz prosvjeda no smatram kako ekstremna desnica u Hrvatskoj nije kompatibilna s onom u ostatku Europe. Razlog tome je nedostatak zajedničkog problema koji se ogleda kroz migrante. Oni u nas ne postoje u značajnom broju pa stoga ne postoji zajednička ključna tema i problemi“, objašnjava Majetić.<br><br>Pod kontrolom struktura<br><br>Kad je Srbija u pitanju, ekstremna desnica također postoji. Zoran Petakov, ljevičarski aktivist iz Novog Sada, konstatira i kako dvije koje se svrstavaju u taj blok imaju svoje predstavnike u državnom parlamentu. Za organizacije koje djeluju izvan parlamenta navodi da su „pod kontrolom bezbednosnih struktura Srbije ili Rusije, a to su Srpska desnica, Nacionalna Avangarda, Srpska Liga, zatim neonacističke grupacije poput SrBske Akcije, Nacionalnog srpskog fronta, Otadžbinskog pokreta Obraz i SNP Zbor“. „Birači u Srbiji ne bi u dovoljnoj meri podržali otvorenu ekstremno desničarsku partiju. Koliko je politička scena od početka veka pomerena u desno govori i to da su Srpska radikalna stranka, koja nije promenila svoj šovinistički program iz 1991. godine, i Dveri koje svojim programom najviše podsećaju na totalitarnu fašističku partiju koju je tridesetih godina prošlog veka želeo i predlagao Miloš Crnjanski, dobile dovoljan broj glasova da se nađu u parlamentu“, navodi Petakov. Ako se govori o političkim strankama ekstremno desne orijentacije, uglavnom su oni svima asocijacija na marševe nabildanih muškaraca pod zastavama i, ako je moguće, u nekakvim uniformama i obilježjima koja podsjećaju na mračnu prošlost '20-ih, '30-ih i '40-ih godina prošlog stoljeća. U tome smislu, postavlja se pitanje što zapravo karakterizira ekstremnu desnicu u smislu političkog programa?</div>
     		</div>
     	</div>
     </div>
@@ -101,7 +141,7 @@
 	        </ul>
 	      {% endif %}
 	    </div>
-	    <div class="burger">
+	    <div class="burger" id="burger-alt">
 	      <div class="line1"></div>
 	      <div class="line2"></div>
 	      <div class="line3"></div>

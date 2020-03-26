@@ -7,22 +7,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="shortcut icon" type="image/x-icon" href="{% static 'cpi/favicon.ico' %}">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 	<link rel="stylesheet" href="{% static 'cpi/stylesheet.css' %}">
-	<title>Projekti</title>
+	<title>CPI/Publikacija</title>
 </head>
 <body>
 	<div class="menu-dropdown">
 		<div class="menu-close-box"><img src="{% static 'cpi/X.png' %}"></div>
-		<p class="menu-title">MENI</p>
+		<p class="menu-title">{% trans 'MENI' %}</p>
 		<ul class="menu-dropdown-list">
-			<li class="list-item"><a href="{% url 'o-nama' %}">O NAMA</a></li>
-			<li class="list-item"><a href="{% url 'cpi-projekti' %}">PROJEKTI</a></li>
-			<li class="list-item" id="i-ture"><a href="{% url 'cpi-istorijske_ture' %}">ISTORIJSKE TURE</a></li>
-			<li class="list-item"><a href="{% url 'cpi-publikacije' %}">PUBLIKACIJE</a></li>
+			<li class="list-item"><a href="{% url 'o-nama' %}">{% trans 'O NAMA' %}</a></li>
+			<li class="list-item"><a href="{% url 'cpi-projekti' %}">{% trans 'PROJEKTI' %}</a></li>
+			<li class="list-item" id="i-ture"><a href="{% url 'cpi-istorijske_ture' %}">{% trans 'ISTORIJSKE TURE' %}</a></li>
+			<li class="list-item"><a href="{% url 'cpi-publikacije' %}">{% trans 'PUBLIKACIJE' %}</a></li>
 		</ul>
 		 {% if 'en' not in request.path %}
-	        <ul class="nav-langs">
+	        <ul class="nav-langs" id="nav-langs">
 	            <li class="light"><a href="{{ url }}">SRB</a></li>
 	            <li class="li-regular"><a href="/en{{ url }}">ENG</a></li>
 	            <li class="form-box">
@@ -36,11 +37,11 @@
 		        </li>
 	        </ul>
 	      {% else %}
-	        <ul class="nav-langs">
+	        <ul class="nav-langs" id="nav-langs">
 	            <li class="li-regular"><a href="{{ url }}">SRB</a></li>
 	            <li class="light"><a href="/en{{ url }}">ENG</a></li>
 	            <li class="form-box">
-	        	    <form class="search-form" action="{% url 'cpi-pretraga' %}">
+	        	    <form class="search-form" action="#">
 			            <button class="magnifying-glass" type="submit">
 			                <img src="{% static 'cpi/vektor.png' %}">
 			            </button>
@@ -49,7 +50,7 @@
 			        </form>
 		       </li>
 	        </ul>
-	    {% endif %}
+	      {% endif %}
 	</div>
     <nav style="width: 100%;">
 		<a href="{% url 'cpi-naslovna' %}">
@@ -152,17 +153,19 @@
             <div class="p-detail-right">
             	<p class="title">{{ publikacija.Naslov }}</p>
             	<p class="autor">{{ publikacija.Autor }}</p>
-            	<p class="description">{{ publikacija.Opis|safe }}</p>
+            	<div class="description">{{ publikacija.Opis|safe|truncatewords:90 }}</div>
             	<div class="download">
-            		<div class="p-download-left"><a href=""><p>{% trans 'DOWNLOAD PDF' %}</p></a></div>
+            		<div class="p-download-left"><p>{% trans 'DOWNLOAD PDF' %}</p></div>
+            		<a href="{{ publikacija.file.url }}" download>
             		<div class="p-download-right">
             			<img src="{% static 'cpi/strelica.png' %}" alt="arrow">
             		</div>
+            		</a>
             	</div>
             </div>
 		</div>
 	</div>
-	<div class="footer">
+    <div class="footer">
 		<div class="footer-content">
 		    <div class="content-box">
 				<div class="inside-box1">
@@ -215,8 +218,8 @@
 					</div>
 					<div class="social-box-upper">
 						<div class="fb-box">
-							<img class="fb-regular" src="{% static 'cpi/fb-gray-logo.png' %}">
-							<img class="fb-hover" src="{% static 'cpi/facebook.png' %}">
+							<a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812"><img class="fb-regular" src="{% static 'cpi/fb-gray-logo.png' %}"></a>
+							<a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812"><img class="fb-hover" src="{% static 'cpi/facebook.png' %}"></a>
 						</div>
 						<div class="tweeter-box">
 							<img class="regular" src="{% static 'cpi/tweeter.png' %}">
@@ -234,7 +237,6 @@
 							<img class="yt-1" src="{% static 'cpi/screen.png' %}">
 							<img class="yt-2" src="{% static 'cpi/play.png' %}">
 							<img class="yt-hover" src="{% static 'cpi/youtube-red.png' %}">
-
 						</div>
 					</div>
 				</div>
@@ -284,9 +286,202 @@
 				</div>
             </div>
 		</div>
+		<div class="footer-content-mobile">
+			<div class="info-contact">
+				<div class="address">
+					<p class="address-title">{% trans 'Adresa' %}</p>
+					<p class="address-address">Balkanska 35-39, Beograd 3. sprat, kancelarija 7</p>
+				</div>
+				<div class="kontakt">
+					<p class="kontakt-title">{% trans 'Kontakt' %}</p>
+					<p class="email">centarzaprimenjenuistoriju@gmail</p>
+					<p class="phone">+381 1 234 567</p>
+				</div>
+				<br style="clear: both;">
+			</div>
+			<div class="follow_us">
+				<div class="title-box1">
+					<div class="title-box1-text">
+					    <p>{% trans 'Pratite nas' %}</p>
+					</div>
+				</div>
+				<div class="social-box-upper">
+                        <a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812">
+							<div class="fb-box">
+								<img class="fb-hover" src="{% static 'cpi/facebook.png' %}">
+								<img class="fb-regular" src="{% static 'cpi/fb-gray-logo.png' %}">
+							</div>
+					    </a>
+					<a href="">
+						<div class="tweeter-box">
+							<img class="hover" src="{% static 'cpi/tweeter-red.png' %}">
+							<img class="regular" src="{% static 'cpi/tweeter.png' %}">
+						</div>
+				    </a>
+				</div>
+				<div class="social-box-lower">
+					<a href="https://www.instagram.com/cpi_cph/?fbclid=IwAR3I8XkW357aafZAyx0rgFem8T5hdJMSiQ2roAR74FaJzU4LjuM4TfsyNIo">
+						<div class="instagram-box">
+							<!-- <img class="outer-insta" src="{% static 'cpi/instagram.png' %}">
+							<img class="inner-insta" src="{% static 'cpi/shape.png' %}"> -->
+							<img class="insta-hover" src="{% static 'cpi/Instagram-red.png' %}">
+							<img class="insta-regular" src="{% static 'cpi/instagram2.png' %}">
+						</div>
+				    </a>
+				    <a href="https://www.youtube.com/channel/UCWVLw334maLEE7_1I3Pt_bg">
+						<div class="youtube-box">
+							<img class="yt-regular" src="{% static 'cpi/youtube3.png' %}">
+							<img class="yt-hover" src="{% static 'cpi/youtube-red.png' %}">
+						</div>
+				    </a>
+				</div>
+			</div>
+		</div>
 		<div class="footer-bottom" style="color:#FFFFFF;">
-			<img src="{% static 'cpi/Copyright.png' %}" style="margin-top: 4vh; margin-left: 2vw;">
+			<img class="desktop-image" src="{% static 'cpi/Copyright.png' %}" style="margin-top: 4vh; margin-left: 2vw;">
+			<img class="mobile-image1" src="{% static 'cpi/copyright-mobile.png' %}">
+			<img class="mobile-image2" src="{% static 'cpi/up-arrow.png' %}">
 		</div>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+         	$('.footer .footer-content-mobile .follow_us .social-box-lower .youtube-box').click(function() {
+			    $('.footer .footer-content-mobile .follow_us .social-box-lower .youtube-box .yt-hover').css('display', 'block');
+			    $('.footer .footer-content-mobile .follow_us .social-box-lower .youtube-box .yt-regular').css('display', 'none');
+			});
+		});
+    </script>
+    <script>
+    	$('.Publications_page_slider').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,	
+			infinite: false,
+			arrows: true,
+			dots: true,
+			prevArrow: $('.controls-box-left'),
+			nextArrow: $('.controls-box-right')
+    	});
+    	// $slickSlider.find(".Page_slide").height("auto");
+     //    $slickSlider.slickSetOption(null, null, true);
+    </script> 
+
+    <script>
+		$(document).ready(function(){
+			$('.menu-close-box').click(function() {
+			    $('.menu-dropdown').css('right', '-100%');
+			});	
+		});
+    </script>
+    <script>
+		$(document).ready(function(){
+			$('.burger').click(function() {
+			    $('.menu-dropdown').css('right', '0%');
+			});	
+		});
+    </script>
+    <script>
+		$(document).ready(function(){
+			$('.magnifying-glass').hover(function() {
+			    $('.search-box-input').css('visibility', "visible");
+			});	
+		});
+
+    </script>
+
+    <script>
+		$(document).ready(function(){
+			$('nav').mouseleave(function() {
+			    $('.search-box-input').css('visibility', "hidden");
+			});	
+		});
+
+    </script>
+     <script>
+		$(document).ready(function(){
+			$('.magnifying-glass').hover(function() {
+			    $('.input-off').css('display', "block");
+			});	
+		});
+    </script>
+    <script>
+		$(document).ready(function(){
+			$('.input-off').click(function() {
+			    $('.search-box-input').css('visibility', "hidden");
+			});	
+		});
+    </script>
+     <script>
+		$(document).ready(function(){
+			$('.input-off').click(function() {
+			    $('.input-off').css('display', "none");
+			});	
+		});
+    </script>
+ <!--    <script>
+		$(document).ready(function(){
+			$('.magnifying-glass').hover(function() {
+			    $('.search-box-input').css('display', "block");
+			});	
+		});
+
+    </script> -->
+  
+    <script>
+		$(document).ready(function(){
+			$('.Publications-container-mobile .publikacija-box .publikacija').hover(function() {
+			    $('.Publications-container-mobile .publikacija-box').css('padding-top', "10px");
+			});	
+		});
+    </script>
+    <script>
+    	$('.Publications-container-mobile .publication-block').slice(0,1).show();
+
+    	if($('.Publications-container-mobile .publication-block:hidden').length === 0) {
+                $('#load-more').fadeOut();
+            }
+
+    	$('#load-publications').on('click', function() {
+            $('.Publications-container-mobile .publication-block:hidden').slice(0,1).slideDown();
+            if($('.Publications-container-mobile .publication-block:hidden').length === 0) {
+                $('#load-publications').fadeOut();
+            }
+        });
+    </script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$('.footer .footer-content-mobile .follow_us .social-box-upper .tweeter-box').click(function() {
+				$('.footer .footer-content-mobile .follow_us .social-box-upper .tweeter-box').css({'box-shadow': '1px 3px 18px -4px rgba(173,161,173,1)', 'border': '1px solid #E84F45'});
+				$('.footer .footer-content-mobile .follow_us .social-box-upper .tweeter-box .regular').css('display', 'none');
+				$('.footer .footer-content-mobile .follow_us .social-box-upper .tweeter-box .hover').css('display', 'block');
+			});
+		});		
+    </script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+	    	$('.footer .footer-content-mobile .follow_us .social-box-upper .fb-box').click(function() {
+				$('.footer .footer-content-mobile .follow_us .social-box-upper .fb-box').css({'box-shadow': '1px 3px 18px -4px rgba(173,161,173,1)', 'border': '1px solid #E84F45'});
+				$('.footer .footer-content-mobile .follow_us .social-box-upper .fb-box .fb-regular').css('display', 'none');
+				$('.footer .footer-content-mobile .follow_us .social-box-upper .fb-box .fb-hover').css('display', 'block');
+			});
+		});
+    </script>
+    <script>
+    	$(document).ready(function(){
+            $('.footer .footer-content-mobile .follow_us .social-box-lower .instagram-box').click(function() {
+				$('.footer .footer-content-mobile .follow_us .social-box-lower .instagram-box').css({'box-shadow': '1px 3px 18px -4px rgba(173,161,173,1)', 'border': '1px solid #E84F45'});
+				$('.footer .footer-content-mobile .follow_us .social-box-lower .instagram-box .insta-regular').css('display', 'none');
+				$('.footer .footer-content-mobile .follow_us .social-box-lower .instagram-box .insta-hover').css('display', 'block');
+			});
+		});	 	 
+    </script>
+    <script type="text/javascript">
+	    $(document).ready(function(){
+			$('.footer .footer-content-mobile .follow_us .social-box-lower .youtube-box').click(function() {
+				$('.footer .footer-content-mobile .follow_us .social-box-lower .youtube-box').css( 'border', '1px solid #E84F45');
+			});
+		});		
+    </script>
 </body>
 </html>

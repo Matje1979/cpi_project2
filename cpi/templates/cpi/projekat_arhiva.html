@@ -1,0 +1,170 @@
+{% extends 'cpi/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}  
+  <div class="menu-dropdown">
+    <div class="menu-close-box"><img src="{% static 'cpi/X.png' %}"></div>
+    <p class="menu-title">{% trans 'MENI' %}</p>
+    <ul class="menu-dropdown-list">
+      <li class="list-item"><a href="{% url 'o-nama' %}">{% trans 'O NAMA' %}</a></li>
+      <li class="list-item"><a href="{% url 'cpi-projekti' %}">{% trans 'PROJEKTI' %}</a></li>
+      <li class="list-item" id="i-ture"><a href="{% url 'cpi-istorijske_ture' %}">{% trans 'ISTORIJSKE TURE' %}</a></li>
+      <li class="list-item"><a href="{% url 'cpi-publikacije' %}">{% trans 'PUBLIKACIJE' %}</a></li>
+    </ul>
+     {% if 'en' not in request.path %}
+          <ul class="nav-langs" id="nav-langs">
+              <li class="light"><a href="{{ url }}">SRB</a></li>
+              <li class="li-regular"><a href="/en{{ url }}">ENG</a></li>
+              <li class="form-box">
+                <form class="search-form" action="pretraga/" autocomplete="off">
+                  <button class="magnifying-glass" type="submit">
+                      <img src="{% static 'cpi/vektor.png' %}">
+                  </button>
+                  <input class="search-box-input" type="text" placeholder="Search" name="q">
+                  <p class="input-off">X</p>
+              </form>
+            </li>
+          </ul>
+        {% else %}
+          <ul class="nav-langs" id="nav-langs">
+              <li class="li-regular"><a href="{{ url }}">SRB</a></li>
+              <li class="light"><a href="/en{{ url }}">ENG</a></li>
+              <li class="form-box">
+                <form class="search-form" action="#">
+                  <button class="magnifying-glass" type="submit">
+                      <img src="{% static 'cpi/vektor.png' %}">
+                  </button>
+                  <input class="search-box-input" type="text" placeholder="Search" name="q">
+                  <p class="input-off">X</p>
+              </form>
+           </li>
+          </ul>
+        {% endif %}
+  </div>
+  <nav style="width: 100%;">
+    <a href="{% url 'cpi-naslovna' %}">
+      <div class="logo-wrapper">
+          <div class="logo">
+            <div id="div1">
+              <p>C</p>
+              <img src="{% static 'cpi/Ellipse_1.png' %}">
+            </div>
+            <div id="div2">
+              <p>P</p>
+              <img class="tacka_2" src="{% static 'cpi/Ellipse_2.png' %}">
+            </div>
+            <div id="div3">
+              <p>I</p>
+              <img src="{% static 'cpi/Ellipse_3.png' %}">
+            </div>
+          </div>
+        </div>
+        <div class="logo-white">
+          <img src="{% static 'cpi/cpi_logo.png' %}">
+        </div>
+    </a>
+    <ul class="nav-links">
+      <li class="o_nama">
+        <a href="{% url 'o-nama' %}">{% trans 'O NAMA' %}</a>
+        {% if 'o_nama' in request.path %}
+            <p class="onam1"></p>
+        {% else %}
+            <p class="onam2"></p>
+        {% endif %}
+      </li>
+      <li class="nav-projekti">
+        <a href="{% url 'cpi-projekti' %}">{% trans 'PROJEKTI' %}</a>
+        {% if 'projekti' in request.path %}
+            <p class="pro1"></p>
+        {% else %}
+            <p class="pro2"></p>
+        {% endif %}
+      </li>
+      <li class="h_tours">
+        <a href="{% url 'cpi-istorijske_ture' %}">{% trans 'ISTORIJSKE TURE' %}</a>
+        {% if 'istorijske_ture' in request.path %}
+            <p class="ist1"></p>
+        {% else %}
+            <p class="ist2"></p>
+        {% endif %}
+      </li>
+      <li class="publications">
+        <a href="{% url 'cpi-publikacije' %}">{% trans 'PUBLIKACIJE' %}</a>
+        {% if 'publikacije' in request.path %}
+            <p class="pub1"></p>
+        {% else %}
+            <p class="pub2"></p>
+        {% endif %}
+      </li>
+      <li id="langs">
+        <span id="langs-img"><img src="vektor.png"></span><span><a href="#">ENG</a></span><span><a href="#">SRB</span></a>
+      </li>
+    </ul>
+      {% if 'en' not in request.path %}
+        <div class="nav-langs">
+          <div class="form-box">
+              <form class="search-form" action="pretraga/" autocomplete="off">
+                  <input class="search-box-input" type="text" placeholder="Search" name="q">
+                <button class="magnifying-glass" type="submit">
+                    <img src="{% static 'cpi/vektor.png' %}">
+                </button>
+            </form>
+          </div>
+            <div class="light"><a href="{{ url }}">SRB</a></div>
+            <div class="li-regular"><a href="/en{{ url }}">ENG</a></div>
+        </div>
+      {% else %}
+        <ul class="nav-langs">
+          <li class="form-box">
+            <form class="search-form" action="{% url 'cpi-pretraga' %}">
+                <input class="search-box-input" type="text" placeholder="Search" name="q">
+              <button class="magnifying-glass" type="submit">
+                <img src="{% static 'cpi/vektor.png' %}">
+              </button>
+          </form>
+         </li>
+          <li class="li-regular"><a href="{{ url }}">SRB</a></li>
+          <li class="light"><a href="/en{{ url }}">ENG</a></li>
+        </ul>
+      {% endif %}
+    </div>
+    <div class="burger" id="burger-alt">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+  </nav>
+  <div class="container">
+   <!--  <div class="o_nama_meni">
+      <a href="{% url 'o-nama' %}"><div class="menu-item"><p>{% trans 'MISIJA' %}</p></div></a>
+      <a href="{% url 'cpi-tim' %}"><div class="menu-item"><p>{% trans 'TIM' %}</p></div></a>
+      <a href="{% url 'cpi-partneri' %}"><div class="menu-item"><p>{% trans 'PARTNERI' %}</p></div></a>
+      <a href="{% url 'cpi-galerija' %}"><div class="menu-item"><p>{% trans 'GALERIJA' %}</p></div></a>
+      <a href="{% url 'cpi-press' %}"><div class="menu-itemP"><p id="press">{% trans 'PRESS' %}</p></div></a>
+    </div> -->
+    <div class="press_container" id="projekat-press">
+     <!--  <a href="{% url 'o-nama' %}"><div class="button" id="mission-button"><p>{% trans 'MISIJA' %}</p></div></a>
+      <a href="{% url 'cpi-tim' %}"><div class="button" id="team-button"><p>{% trans 'TIM' %}</p></div></a>
+      <a href="{% url 'cpi-galerija' %}"><div class="button" id="gallery-button"><p>{% trans 'GALERIJA' %}</p></div></a>
+        <a href="{% url 'cpi-partneri' %}"><div class="button" id="partners-button"><p>{% trans 'PARTNERI' %}</p></div></a>
+      <a href="{% url 'cpi-press' %}"><div id="press-button"><p>{% trans 'PRESS' %}</p></div></a> -->
+      {% for item in arhiva %}
+        <div class="clanak">
+          <div class="levi"><img src="{{ item.Slika.url }}"></div>
+          <div class="desni">
+            <div class="gornji">{{ item.Naslov }}</div>
+           <!--  <div class="srednji">{{ clanak.Medij }}</div> -->
+            <div class="donji">
+              <div class="d_levi">DOWNLOAD</div>
+              <a href="#">
+                <div class="d_desni"><img src="{% static 'cpi/strelica.png' %}"></div>
+              </a>
+            </div>
+          </div>
+          <br style="clear: both;">
+        </div>
+      {% endfor %}
+    </div>
+    <br style="clear: both;">
+  </div>
+{% endblock content %}

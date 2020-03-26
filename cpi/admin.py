@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Aktuelnost, Projekat, Publikacija, Fotografija, ClanTima, VideoKlip, PressClanak, Partner, Prijava, IstorijskaTura, Izlozba, ArhivskiMaterijal, ProjekatPodkategorija, SadrzajProjekatPodkategorije, Eksponat 
+from .models import Istaknuto, Aktuelnost, Projekat, Publikacija, Fotografija, ClanTima, VideoKlip, PressClanak, Partner, Prijava, IstorijskaTura, Izlozba, ArhivskiMaterijal, ProjekatPodkategorija, SadrzajProjekatPodkategorije, Eksponat 
 
 admin.site.register(Aktuelnost)
 admin.site.register(Projekat)
@@ -16,6 +16,7 @@ admin.site.register(ArhivskiMaterijal)
 admin.site.register(Eksponat)
 admin.site.register(SadrzajProjekatPodkategorije)
 admin.site.register(ProjekatPodkategorija)
+admin.site.register(Istaknuto)
 
 
 

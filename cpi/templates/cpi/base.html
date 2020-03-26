@@ -13,6 +13,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="{% static 'cpi/favicon.ico' %}">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
   <!-- Latest compiled and minified CSS -->
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
@@ -34,7 +35,7 @@
     </div>
     {% block content %}{% endblock content %}
     <div class="footer">
-    <div class="footer-content">
+      <div class="footer-content">
         <div class="content-box">
         <div class="inside-box1">
           <div class="inner1">
@@ -157,11 +158,11 @@
         <div class="footer-content-mobile">
       <div class="info-contact">
         <div class="address">
-          <p class="address-title">Adresa</p>
+          <p class="address-title">{% trans 'Adresa' %}</p>
           <p class="address-address">Balkanska 35-39, Beograd 3. sprat, kancelarija 7</p>
         </div>
         <div class="kontakt">
-          <p class="kontakt-title">Kontakt</p>
+          <p class="kontakt-title">{% trans 'Kontakt' %}</p>
           <p class="email">centarzaprimenjenuistoriju@gmail</p>
           <p class="phone">+381 1 234 567</p>
         </div>
@@ -174,24 +175,34 @@
           </div>
         </div>
         <div class="social-box-upper">
-          <div class="fb-box">
-            <a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812"><img class="fb-hover" src="{% static 'cpi/facebook.png' %}"></a>
-          </div>
+          <a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812">
+            <div class="fb-box">
+              <img class="fb-hover" src="{% static 'cpi/facebook.png' %}">
+              <img class="fb-regular" src="{% static 'cpi/fb-gray-logo.png' %}">
+            </div>
+          </a>
           <div class="tweeter-box">
             <img class="hover" src="{% static 'cpi/tweeter-red.png' %}">
+            <img class="regular" src="{% static 'cpi/tweeter.png' %}">
           </div>
         </div>
         <div class="social-box-lower">
-          <div class="instagram-box">
-            <!-- <img class="outer-insta" src="{% static 'cpi/instagram.png' %}">
-            <img class="inner-insta" src="{% static 'cpi/shape.png' %}"> -->
-            <img class="insta-hover" src="{% static 'cpi/Instagram-red.png' %}">
-          </div>
-          <div class="youtube-box">
-            <!-- <img class="yt-1" src="{% static 'cpi/screen.png' %}">
-            <img class="yt-2" src="{% static 'cpi/play.png' %}"> -->
-            <img class="yt-hover" src="{% static 'cpi/youtube-red.png' %}">
-          </div>
+          <a href="https://www.instagram.com/cpi_cph/?fbclid=IwAR3I8XkW357aafZAyx0rgFem8T5hdJMSiQ2roAR74FaJzU4LjuM4TfsyNIo">
+            <div class="instagram-box">
+              <!-- <img class="outer-insta" src="{% static 'cpi/instagram.png' %}">
+              <img class="inner-insta" src="{% static 'cpi/shape.png' %}"> -->
+              <img class="insta-hover" src="{% static 'cpi/Instagram-red.png' %}">
+              <img class="insta-regular" src="{% static 'cpi/instagram2.png' %}">
+            </div>
+          </a>
+          <a href="https://www.youtube.com/channel/UCWVLw334maLEE7_1I3Pt_bg">
+            <div class="youtube-box">
+              <!-- <img class="yt-1" src="{% static 'cpi/screen.png' %}">
+              <img class="yt-2" src="{% static 'cpi/play.png' %}"> -->
+              <img class="yt-regular" src="{% static 'cpi/youtube3.png' %}">
+              <img class="yt-hover" src="{% static 'cpi/youtube-red.png' %}">
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -204,6 +215,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
+        $(document).ready(function(){
+          $('.footer .footer-content-mobile .follow_us .social-box-lower .youtube-box').click(function() {
+          $('.footer .footer-content-mobile .follow_us .social-box-lower .youtube-box .yt-hover').css('display', 'block');
+          $('.footer .footer-content-mobile .follow_us .social-box-lower .youtube-box .yt-regular').css('display', 'none');
+      });
+    });
+    </script>
+    <script>
     $(document).ready(function(){
       var d = "{{ fotka_num }}";
       $('.gallery-slider-big').slick({
@@ -213,7 +232,7 @@
         fade: true,
         asNavFor: '.gallery-slider-small',
         initialSlide: d,
-        infinite: true,
+        infinite: false,
         nextArrow: $('.next'),
         prevArrow: $('.prev')
       });
@@ -224,7 +243,7 @@
         dots: false,
         centerMode: true,
         focusOnSelect: true,
-        infinite: true,
+        infinite: false,
         initialSlide: d,
         nextArrow: $('.next_small'),
         prevArrow: $('.prev_small')
@@ -235,7 +254,7 @@
     <script>
     $(document).ready(function(){
       $('.menu-close-box').click(function() {
-          $('.menu-dropdown').css('transform', "translateX(100%)");
+          $('.menu-dropdown').css('right', '-100%');
       }); 
     });
     </script>
@@ -243,7 +262,7 @@
     <script>
     $(document).ready(function(){
       $('.burger').click(function() {
-          $('.menu-dropdown').css('transform', "translateX(0%)");
+          $('.menu-dropdown').css('right', '0%');
       }); 
     });
     </script>
@@ -274,7 +293,7 @@
      <script>
     $(document).ready(function(){
       $('.input-off').click(function() {
-          $('.search-box-input').css('display', "none");
+          $('.search-box-input').css('visibility', "hidden");
       }); 
     });
     </script>
@@ -293,6 +312,40 @@
                 $('#load-more').fadeOut();
             }
         });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.footer .footer-content-mobile .follow_us .social-box-upper .tweeter-box').click(function() {
+        $('.footer .footer-content-mobile .follow_us .social-box-upper .tweeter-box').css({'box-shadow': '1px 3px 18px -4px rgba(173,161,173,1)', 'border': '1px solid #E84F45'});
+        $('.footer .footer-content-mobile .follow_us .social-box-upper .tweeter-box .regular').css('display', 'none');
+        $('.footer .footer-content-mobile .follow_us .social-box-upper .tweeter-box .hover').css('display', 'block');
+      });
+    });   
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.footer .footer-content-mobile .follow_us .social-box-upper .fb-box').click(function() {
+        $('.footer .footer-content-mobile .follow_us .social-box-upper .fb-box').css({'box-shadow': '1px 3px 18px -4px rgba(173,161,173,1)', 'border': '1px solid #E84F45'});
+        $('.footer .footer-content-mobile .follow_us .social-box-upper .fb-box .fb-regular').css('display', 'none');
+        $('.footer .footer-content-mobile .follow_us .social-box-upper .fb-box .fb-hover').css('display', 'block');
+      });
+    });
+    </script>
+    <script>
+      $(document).ready(function(){
+            $('.footer .footer-content-mobile .follow_us .social-box-lower .instagram-box').click(function() {
+        $('.footer .footer-content-mobile .follow_us .social-box-lower .instagram-box').css({'box-shadow': '1px 3px 18px -4px rgba(173,161,173,1)', 'border': '1px solid #E84F45'});
+        $('.footer .footer-content-mobile .follow_us .social-box-lower .instagram-box .insta-regular').css('display', 'none');
+        $('.footer .footer-content-mobile .follow_us .social-box-lower .instagram-box .insta-hover').css('display', 'block');
+      });
+    });    
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+      $('.footer .footer-content-mobile .follow_us .social-box-lower .youtube-box').click(function() {
+        $('.footer .footer-content-mobile .follow_us .social-box-lower .youtube-box').css( 'border', '1px solid #E84F45');
+      });
+    });   
     </script>
   </body>
 </html>

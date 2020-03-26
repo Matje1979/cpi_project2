@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Projekat, Aktuelnost, ClanTima, Fotografija, Partner, PressClanak, Publikacija, IstorijskaTura, VideoKlip, Izlozba, ArhivskiMaterijal
-
+from django.http import HttpResponse, HttpResponseNotFound
+from .models import SadrzajProjekatPodkategorije, Prijava, Istaknuto, Projekat, ProjekatPodkategorija, Aktuelnost, ClanTima, Fotografija, Partner, PressClanak, Publikacija, IstorijskaTura, VideoKlip, Izlozba, ArhivskiMaterijal
 from users.models import Profil
 from itertools import chain
 from .forms import PrijavaForm
@@ -12,7 +11,10 @@ def home(request):
     # projekat1 = Projekat.objects.get(Ime='Tura 1')
     galerija = Fotografija.objects.all().order_by('-Datum_objave')
     aktuelnosti = Aktuelnost.objects.all().order_by('-Datum_objave')
-
+    cpi = Profil.objects.get(ime='Centar za Primenjenu Istoriju')
+    istaknuto = Istaknuto.objects.all()
+    aktuelnostiX = aktuelnosti[1:] #list without the first item
+    
     count = 1
     projekti_nums = []
     for projekat in projekti:
@@ -25,6 +27,46 @@ def home(request):
 
     video_klipovi = VideoKlip.objects.all().order_by('-Datum_objave')
     publikacije = Publikacija.objects.all().order_by('-Datum_objave')
+
+    count = 0
+    slides = []
+    slide = []
+    num = 0
+    while num < len(galerija):
+        slide = []
+        for i in range(count, count + 7):
+            try:
+                slide.append(galerija[i])
+                num += 1
+            except IndexError:
+                break 
+
+        count += 7
+        slides.append(slide)
+
+    print ("slides: {}".format(slides))
+
+   
+    
+    
+
+    for item in aktuelnostiX:
+        if item.id == aktuelnostiX[0].id:
+            print (aktuelnostiX[0].Ime)
+            print (aktuelnostiX[0].id)
+        elif item.id == aktuelnostiX[3].id:
+            print (aktuelnostiX[3].Ime)
+            print (aktuelnostiX[3].id)
+        elif item.id == aktuelnostiX[2].id:
+            print (aktuelnostiX[2].Ime)
+            print (aktuelnostiX[2].id)
+
+    for item in aktuelnostiX:
+        print (item.id, item.Ime)
+
+    
+    # for slide in slides:
+    #     print (len(slide))
      
     url = request.path
     if 'en' in url:
@@ -32,9 +74,10 @@ def home(request):
     else:
         url = url
 
-    context = {'projekti': projekti, 
+    context = {'istaknuto': istaknuto, 'cpi': cpi, 'projekti': projekti, 'slides': slides,
     'galerija': galerija, 'url': url, 'aktuelnosti': aktuelnosti, 
-    'video_klipovi': video_klipovi, 'publikacije': publikacije, 'projekti_nums': projekti_nums}
+    'video_klipovi': video_klipovi, 'publikacije': publikacije,
+     'projekti_nums': projekti_nums, 'aktuelnostiX': aktuelnostiX}
     return render(request, 'cpi/b4.html', context)
 
 def aktuelnosti(request):
@@ -118,16 +161,28 @@ def prijava(request):
     else:
         url = url
 
-    if request.method == 'POST':
-        formular = PrijavaForm(request.POST)
-        if formular.is_valid():
-            formular.save()
-            return render(request, 'cpi/potvrda_prijave.html')
+    # if request.method == 'POST':
+    #     formular = PrijavaForm(request.POST)
+    #     if formular.is_valid():
+    #         formular.save()
+    #         return render(request, 'cpi/potvrda_prijave.html')
 
+    # else:
+    #     formular = PrijavaForm()
+
+    if request.method == 'POST':
+        name = request.POST['ime']
+        surname = request.POST['prezime']
+        email = request.POST['email']
+        tura = request.POST['tour']
+
+        a = Prijava(Ime = name, Prezime = surname, Email = email, Tura = tura)
+        a.save()
+
+        context ={'url': url}
+        return render(request, 'cpi/potvrda_prijave.html', context)
     else:
-        formular = PrijavaForm()
-        context ={'url': url, 'formular': formular}
-        return render(request, 'cpi/prijava.html', context)
+        return HttpResponseNotFound('<h1>Page not found</h1>')
 
 def projekti(request):
     url = request.path
@@ -206,7 +261,7 @@ def projekat_galerija(request, pk):
         url = url
     
     print (galerija)
-    context = {'galerija': galerija, 'url': url}
+    context = {'projekat': projekat, 'galerija': galerija, 'url': url}
     return render(request, 'cpi/projekat_galerija.html', context)
 
 def o_nama(request):
@@ -403,12 +458,14 @@ def projekti_detalji(request, pk):
     galerija = Fotografija.objects.filter(Projekat = projekat)
     arhiva = ArhivskiMaterijal.objects.filter(Projekat = projekat) 
     press = PressClanak.objects.filter(Projekat = projekat)
+    podkategorija = SadrzajProjekatPodkategorije.objects.filter(Projekat = projekat)
     
     meni_list = []
     menu_list = []
+
     if len(izlozbe) != 0:
-        meni_list.append("IZLOŽBE")
-        menu_list.append("EXHIBITIONS")
+        meni_list.append("IZLOŽBA")
+        menu_list.append("EXHIBITION")
 
     if len(publikacije) != 0:
         meni_list.append("PUBLIKACIJE")
@@ -425,12 +482,56 @@ def projekti_detalji(request, pk):
     if len(galerija) != 0:
         meni_list.append("GALERIJA")
         menu_list.append("GALLERY")
-        
+
+    if len(podkategorija) != 0:
+        podkategorija_instance = SadrzajProjekatPodkategorije.objects.get(Projekat = projekat)
+        meni_list.append(podkategorija_instance.Podkategorija.Ime.upper())
+        menu_list.append(podkategorija_instance.Podkategorija.Ime_en.upper())
+
+
     print (meni_list)
     print (menu_list)
 
     context = {'projekat': projekat, "meni_list": meni_list, "menu_list": menu_list, 'url': url}
     return render(request, 'cpi/projekat_detalji.html', context)
+
+def projekat_info(request, pk, info):
+    url = request.path
+    if 'en' in url:
+        url = url[3:]
+    else:
+        url = url
+
+    projekat = Projekat.objects.get(id = pk)
+
+    if info == "GALERIJA" or info == "GALLERY":
+        galerija = Fotografija.objects.filter(Projekat = projekat)
+        context = {'galerija': galerija, 'info': info, 'projekat': projekat, 'url': url}
+        return render(request, 'cpi/projekat_galerija.html', context )
+
+    if info == "PRESS":
+        press = PressClanak.objects.filter(Projekat = projekat)
+        context = {'press': press, 'info': info, 'projekat': projekat, 'url': url}
+        return render(request, 'cpi/projekat_press.html', context )
+
+    if info == "ARHIVSKI MATERIJAL" or info == "ARCHIVE":
+        arhiva = ArhivskiMaterijal.objects.filter(Projekat = projekat)
+        context = {'arhiva': arhiva, 'info': info, 'projekat': projekat, 'url': url}
+        return render(request, 'cpi/projekat_arhiva.html', context  ) 
+
+    if info == "PUBLIKACIJE" or info == "PUBLICATIONS":
+        publikacije = Publikacija.objects.filter(Projekat = projekat)
+        context = {'publikacije': publikacije, 'info': info, 'projekat': projekat, 'url': url} 
+        return render(request, 'cpi/projekat_publikacije.html', context)
+
+    if info == "IZLOŽBA" or info == "EXHIBITION":
+        izlozba = Izlozba.objects.filter(Projekat = projekat)
+        context = {'izlozba': izlozba, 'info': info, 'projekat': projekat, 'url': url}
+        return render(request, 'cpi/projekat_izlozba.html', context )
+    else:
+        sadrzaj = SadrzajProjekatPodkategorije.objects.get(Projekat=projekat)
+        context = {'sadrzaj': sadrzaj, 'info': info, 'projekat': projekat, 'url': url}
+        return render(request, "cpi/sadrzaj.html", context)
 
 def publikacije_detalji(request, pk):
     url = request.path
@@ -461,7 +562,7 @@ def galerija_detalji(request, pk):
     else:
         url = url
 
-    galerija = Fotografija.objects.all().order_by('Datum_objave')
+    galerija = Fotografija.objects.all().order_by('-Datum_objave')
     fotka = Fotografija.objects.get(id=pk)
 
     count = 0
@@ -496,5 +597,16 @@ def partneri_detalji(request, pk):
     context = {'partner': partner, 'url': url}
 
     return render(request, 'cpi/projekat_detalji.html', context)
+
+def video(request):
+    url = request.path
+    if 'en' in url:
+        url = url[3:]
+    else:
+        url = url
+
+    videos = VideoKlip.objects.all().order_by('-Datum_objave')
+    context= {'videos': videos, 'url': url}
+    return render(request, 'cpi/video.html', context)
 
 

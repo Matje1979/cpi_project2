@@ -3,6 +3,7 @@ from django.utils import timezone
 from ckeditor.fields import RichTextField
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class Projekat(models.Model):
     Ime = models.CharField(max_length=100)
@@ -17,6 +18,9 @@ class Projekat(models.Model):
     Slika = models.ImageField(default = None, upload_to='profile_pics')
     Datum_objave = models.DateTimeField(default=timezone.now)
     Ime_en = models.CharField(max_length=100, null=True, blank=True)
+    Fajl = RichTextUploadingField(blank=True, null=True)
+    Kratak_opis = RichTextField(blank=True, null=True)
+    Kratak_opis_en = RichTextField(blank=True, null=True)
     Opis = RichTextField(blank=True, null=True)
     Opis_en = RichTextField(blank=True, null=True)
     Slika_thumbnail_1 = ImageSpecField(source="Slika",
@@ -41,6 +45,8 @@ class Projekat(models.Model):
 
 class ProjekatPodkategorija(models.Model):
     Ime = models.CharField(max_length=100)
+    Ime_en = models.CharField(max_length=100, null=True, blank=True)
+
 
     def __str__(self):
         return self.Ime
@@ -52,9 +58,6 @@ class SadrzajProjekatPodkategorije(models.Model):
     Podkategorija = models.ForeignKey('ProjekatPodkategorija', on_delete=models.CASCADE)
     Projekat = models.ForeignKey('Projekat', on_delete=models.CASCADE)
     Opis = RichTextField(blank=True, null=True)
-
-    def __str__(self):
-        return self.Ime
 
     class Meta:
         verbose_name_plural = "Sadržaji podkategorija projekata"
@@ -81,6 +84,7 @@ class Prijava(models.Model):
     Ime = models.CharField(max_length=60)
     Prezime = models.CharField(max_length=60)
     Email = models.EmailField(max_length=60)
+    Tura = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.Ime + '' + self.Prezime
@@ -92,6 +96,7 @@ class Prijava(models.Model):
 
 class Publikacija(models.Model):
     Naslov = models.CharField(max_length=100)
+    file = models.FileField(upload_to = 'publications', null=True)
     Slika = models.ImageField(default = None, upload_to='profile_pics')
     Autor = models.CharField(default=None, max_length=100)
     Opis = RichTextField(blank=True, null=True)
@@ -139,6 +144,7 @@ class Fotografija(models.Model):
 class VideoKlip(models.Model):
     Ime = models.CharField(max_length=100)
     Projekat = models.ForeignKey('Projekat', on_delete=models.SET_NULL, blank=True, null=True)
+    Video_url = models.CharField(max_length=150, null=True, blank=True)
     Video = models.FileField(upload_to='videos', null=True, blank=True)
     Datum_objave = models.DateTimeField(default=timezone.now)
     Ime_en = models.CharField(max_length=100, null=True, blank=True)
@@ -265,6 +271,8 @@ class Izlozba(models.Model):
     Short_description = models.CharField(max_length=184)
     Datum_objave = models.DateTimeField(default=timezone.now)
     Projekat = models.ForeignKey('Projekat', on_delete=models.SET_NULL, blank=True, null=True)
+    Opis = RichTextField(blank=True, null=True)
+    Opis_en = RichTextField(blank=True, null=True)
 
     def __str__(self):
         return self.Ime
@@ -285,6 +293,7 @@ class Eksponat(models.Model):
     Datum_objave = models.DateTimeField(default=timezone.now)
     Izlozba = models.ForeignKey('Projekat', on_delete=models.SET_NULL, blank=True, null=True)
 
+
     def __str__(self):
         return self.Ime
 
@@ -294,3 +303,13 @@ class Eksponat(models.Model):
 
     class Meta:
         verbose_name_plural = "Eksponati"
+
+class Istaknuto(models.Model):
+    Ime = models.CharField(max_length=80)
+    Ime_en = models.CharField(max_length=80)
+    Slika = models.ImageField(upload_to='istaknuto')
+    Link_tekst = models.CharField(max_length=20)
+    Link_tekst_en = models.CharField(default="LEARN MORE", max_length=20)
+
+    class Meta:
+        verbose_name_plural = "Istaknuto"

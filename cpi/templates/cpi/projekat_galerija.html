@@ -14,15 +14,15 @@
 <body>
 	<div class="menu-dropdown">
 		<div class="menu-close-box"><img src="{% static 'cpi/X.png' %}"></div>
-		<p class="menu-title">MENI</p>
+		<p class="menu-title">{% trans 'MENI' %}</p>
 		<ul class="menu-dropdown-list">
-			<li class="list-item"><a href="{% url 'o-nama' %}">O NAMA</a></li>
-			<li class="list-item"><a href="{% url 'cpi-projekti' %}">PROJEKTI</a></li>
-			<li class="list-item" id="i-ture"><a href="{% url 'cpi-istorijske_ture' %}">ISTORIJSKE TURE</a></li>
-			<li class="list-item"><a href="{% url 'cpi-publikacije' %}">PUBLIKACIJE</a></li>
+			<li class="list-item"><a href="{% url 'o-nama' %}">{% trans 'O NAMA' %}</a></li>
+			<li class="list-item"><a href="{% url 'cpi-projekti' %}">{% trans 'PROJEKTI' %}</a></li>
+			<li class="list-item" id="i-ture"><a href="{% url 'cpi-istorijske_ture' %}">{% trans 'ISTORIJSKE TURE' %}</a></li>
+			<li class="list-item"><a href="{% url 'cpi-publikacije' %}">{% trans 'PUBLIKACIJE' %}</a></li>
 		</ul>
 		 {% if 'en' not in request.path %}
-	        <ul class="nav-langs">
+	        <ul class="nav-langs" id="nav-langs">
 	            <li class="light"><a href="{{ url }}">SRB</a></li>
 	            <li class="li-regular"><a href="/en{{ url }}">ENG</a></li>
 	            <li class="form-box">
@@ -35,8 +35,8 @@
 			        </form>
 		        </li>
 	        </ul>
-	    {% else %}
-	        <ul class="nav-langs">
+	      {% else %}
+	        <ul class="nav-langs" id="nav-langs">
 	            <li class="li-regular"><a href="{{ url }}">SRB</a></li>
 	            <li class="light"><a href="/en{{ url }}">ENG</a></li>
 	            <li class="form-box">
@@ -49,114 +49,114 @@
 			        </form>
 		       </li>
 	        </ul>
-	    {% endif %}
+	      {% endif %}
 	</div>
-	<nav>
+	<nav style="width: 100%;">
 		<a href="{% url 'cpi-naslovna' %}">
 			<div class="logo-wrapper">
-				<div class="logo">
-					<div id="div1">
-						<p>C</p>
-						<img src="{% static 'cpi/Ellipse_1.png' %}">
-					</div>
-					<div id="div2">
-						<p>P</p>
-						<img class="tacka_2" src="{% static 'cpi/Ellipse_2.png' %}">
-					</div>
-					<div id="div3">
-						<p>I</p>
-						<img src="{% static 'cpi/Ellipse_3.png' %}">
-					</div>
-			    </div>
-		    </div>
-		     <div class="logo-white">
+		        <div class="logo">
+			        <div id="div1">
+			          <p>C</p>
+			          <img src="{% static 'cpi/Ellipse_1.png' %}">
+			        </div>
+			        <div id="div2">
+			          <p>P</p>
+			          <img class="tacka_2" src="{% static 'cpi/Ellipse_2.png' %}">
+			        </div>
+			        <div id="div3">
+			          <p>I</p>
+			          <img src="{% static 'cpi/Ellipse_3.png' %}">
+			        </div>
+	            </div>
+	        </div>
+            <div class="logo-white">
             	<img src="{% static 'cpi/cpi_logo.png' %}">
             </div>
-		</a>
+        </a>
 	    <ul class="nav-links">
-			<li class="o_nama">
-				<a href="{% url 'o-nama' %}">{% trans 'O NAMA' %}</a>
-				{% if 'o_nama' in request.path %}
-		            <p class="onam1"></p>
-		        {% else %}
-		            <p class="onam2"></p>
-		        {% endif %}
-			</li>
-			<li class="nav-projekti">
-				<a href="{% url 'cpi-projekti' %}">{% trans 'PROJEKTI' %}</a>
-				{% if 'projekti' in request.path %}
+	      <li class="o_nama">
+	        <a href="{% url 'o-nama' %}">{% trans 'O NAMA' %}</a>
+	        {% if 'o_nama' in request.path %}
+	            <p class="onam1"></p>
+	        {% else %}
+	            <p class="onam2"></p>
+	        {% endif %}
+	      </li>
+	      <li class="nav-projekti">
+	        <a href="{% url 'cpi-projekti' %}">{% trans 'PROJEKTI' %}</a>
+	        {% if 'projekti' in request.path %}
 	            <p class="pro1"></p>
 	        {% else %}
 	            <p class="pro2"></p>
 	        {% endif %}
-		    </li>
-		    <li class="h_tours">
-		        <a href="{% url 'cpi-istorijske_ture' %}">{% trans 'ISTORIJSKE TURE' %}</a>
-		        {% if 'istorijske_ture' in request.path %}
-		            <p class="ist1"></p>
-		        {% else %}
-		            <p class="ist2"></p>
-		        {% endif %}
-		    </li>
-		    <li class="publications">
-		        <a href="{% url 'cpi-publikacije' %}">{% trans 'PUBLIKACIJE' %}</a>
-		        {% if 'publikacije' in request.path %}
-		            <p class="pub1"></p>
-		        {% else %}
-		            <p class="pub2"></p>
-		        {% endif %}
-		    </li>
-		    <li id="langs">
-	        	<span id="langs-img"><img src="{% static 'cpi/vektor.png' %}"></span><span><a href="#">ENG</a></span><span><a href="#">SRB</span></a>
-	        </li>
+	      </li>
+	      <li class="h_tours">
+	        <a href="{% url 'cpi-istorijske_ture' %}">{% trans 'ISTORIJSKE TURE' %}</a>
+	        {% if 'istorijske_ture' in request.path %}
+	            <p class="ist1"></p>
+	        {% else %}
+	            <p class="ist2"></p>
+	        {% endif %}
+	      </li>
+	      <li class="publications">
+	        <a href="{% url 'cpi-publikacije' %}">{% trans 'PUBLIKACIJE' %}</a>
+	        {% if 'publikacije' in request.path %}
+	            <p class="pub1"></p>
+	        {% else %}
+	            <p class="pub2"></p>
+	        {% endif %}
+	      </li>
+	      <li id="langs">
+	        <span id="langs-img"><img src="vektor.png"></span><span><a href="#">ENG</a></span><span><a href="#">SRB</span></a>
+	      </li>
 	    </ul>
-	    <div>
-		    {% if 'en' not in request.path %}
-		        <ul class="nav-langs">
-		        	<li class="form-box">
-		        	  <form class="search-form" action="pretraga/">
-		        	  	  <input type="text" placeholder="Search" name="q">
-				          <button class="magnifying-glass" type="submit">
-				          	<img src="{% static 'cpi/vektor.png' %}">
-				          </button>
-				      </form>
-			        </li>
-		            <li class="light"><a href="{{ url }}">SRB</a></li>
-		            <li class="li-regular"><a href="/en{{ url }}">ENG</a></li>
-		        </ul>
-		      {% else %}
-		        <ul class="nav-langs">
-		          <li class="form-box">
-		        	  <form class="search-form" action="#">
-		        	  	  <input type="text" placeholder="Search" name="q">
-				          <button class="magnifying-glass" type="submit">
-				          	<img src="{% static 'cpi/vektor.png' %}">
-				          </button>
-				      </form>
-			       </li>
-		          <li class="li-regular"><a href="{{ url }}">SRB</a></li>
-		          <li class="light"><a href="/en{{ url }}">ENG</a></li>
-		        </ul>
-		      {% endif %}
+	      {% if 'en' not in request.path %}
+	        <div class="nav-langs">
+	        	<div class="form-box">
+	        	    <form class="search-form" action="pretraga/" autocomplete="off">
+	        	  	    <input class="search-box-input" type="text" placeholder="Search" name="q">
+			            <button class="magnifying-glass" type="submit">
+			          	    <img src="{% static 'cpi/vektor.png' %}">
+			            </button>
+			        </form>
+		        </div>
+	            <div class="light"><a href="{{ url }}">SRB</a></div>
+	            <div class="li-regular"><a href="/en{{ url }}">ENG</a></div>
+	        </div>
+	      {% else %}
+	        <ul class="nav-langs">
+	          <li class="form-box">
+	        	  <form class="search-form" action="#">
+	        	  	  <input class="search-box-input" type="text" placeholder="Search" name="q">
+			          <button class="magnifying-glass" type="submit">
+			          	<img src="{% static 'cpi/vektor.png' %}">
+			          </button>
+			      </form>
+		       </li>
+	          <li class="li-regular"><a href="{{ url }}">SRB</a></li>
+	          <li class="light"><a href="/en{{ url }}">ENG</a></li>
+	        </ul>
+	      {% endif %}
 	    </div>
-		<div class="burger">
-			<div class="line1"></div>
-			<div class="line2"></div>
-			<div class="line3"></div>
-        </div>
-	</nav>
-	<div class="container">
-		<div class="o_nama_meni">
-		    <a href="{% url 'o-nama' %}"><div class="menu-item"><p>{% trans 'MISIJA' %}</p></div></a>
-			<a href="{% url 'cpi-tim' %}"><div class="menu-item"><p>{% trans 'TIM' %}</p></div></a>
-			<a href="{% url 'cpi-partneri' %}"><div class="menu-item"><p>{% trans 'PARTNERI' %}</p></div></a>
-			<a href=""><div class="menu-itemG"><p id="galerija">GALERIJA</p></div></a>
-			<a href="{% url 'cpi-press' %}"><div class="menu-item"><p>{% trans 'PRESS' %}</p></div></a>
-		</div>
+	    <div class="burger" id="burger-alt">
+	      <div class="line1"></div>
+	      <div class="line2"></div>
+	      <div class="line3"></div>
+	    </div>
+    </nav>
+	<div class="container" id="projekat-galerija">
+		<!-- <div class="o_nama_meni" style="width: 88.91%;">
+			<a href="{% url 'cpi-projekti-detalji' projekat.id %}"><div class="menu-itemM"><p id="misija">{% trans 'PROJEKAT' %}</p></div></a>
+		</div> -->
+		{% if 'en' not in request.path %}
+			<div class="project-name" style="width: 300px; font-family: Gilroy; font-weight: 800; color: #E84F45; margin: 30px auto;">{{ projekat.Ime }}</div>
+		{% else %}
+            <div class="project-name" style="width: 300px; font-family: Gilroy; font-weight: 800; color: #E84F45; margin: 30px auto;">{{ projekat.Ime_en }}</div>
+		{% endif %}
 		<div class="foto_galerija clearfix">
 			{% for photo in galerija %}
 	            <div>
-	            	<a href="#"><img src="{{ photo.Slika.url }}"></a>
+	            	<a href="{% url 'cpi-galerija-detalji' photo.id %}"><img src="{{ photo.Slika.url }}"></a>
 	            </div>
             {% endfor %}
 		</div>
@@ -214,8 +214,8 @@
 					</div>
 					<div class="social-box-upper">
 						<div class="fb-box">
-							<img class="fb-regular" src="{% static 'cpi/fb-gray-logo.png' %}">
-							<img class="fb-hover" src="{% static 'cpi/facebook.png' %}">
+							<a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812"><img class="fb-regular" src="{% static 'cpi/fb-gray-logo.png' %}"></a>
+							<a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812"><img class="fb-hover" src="{% static 'cpi/facebook.png' %}"></a>
 						</div>
 						<div class="tweeter-box">
 							<img class="regular" src="{% static 'cpi/tweeter.png' %}">
@@ -233,7 +233,6 @@
 							<img class="yt-1" src="{% static 'cpi/screen.png' %}">
 							<img class="yt-2" src="{% static 'cpi/play.png' %}">
 							<img class="yt-hover" src="{% static 'cpi/youtube-red.png' %}">
-
 						</div>
 					</div>
 				</div>
@@ -283,10 +282,180 @@
 				</div>
             </div>
 		</div>
+		<div class="footer-content-mobile">
+			<div class="info-contact">
+				<div class="address">
+					<p class="address-title">{% trans 'Adresa' %}</p>
+					<p class="address-address">Balkanska 35-39, Beograd 3. sprat, kancelarija 7</p>
+				</div>
+				<div class="kontakt">
+					<p class="kontakt-title">{% trans 'Kontakt' %}</p>
+					<p class="email">centarzaprimenjenuistoriju@gmail</p>
+					<p class="phone">+381 1 234 567</p>
+				</div>
+				<br style="clear: both;">
+			</div>
+			<div class="follow_us">
+				<div class="title-box1">
+					<div class="title-box1-text">
+					    <p>{% trans 'Pratite nas' %}</p>
+					</div>
+				</div>
+				<div class="social-box-upper">
+                        <a href="https://www.facebook.com/cpi.cpi.90226/about?lst=586286136%3A100026784489324%3A1579600812">
+							<div class="fb-box">
+								<img class="fb-hover" src="{% static 'cpi/facebook.png' %}">
+								<img class="fb-regular" src="{% static 'cpi/fb-gray-logo.png' %}">
+							</div>
+					    </a>
+					<a href="">
+						<div class="tweeter-box">
+							<img class="hover" src="{% static 'cpi/tweeter-red.png' %}">
+							<img class="regular" src="{% static 'cpi/tweeter.png' %}">
+						</div>
+				    </a>
+				</div>
+				<div class="social-box-lower">
+					<a href="https://www.instagram.com/cpi_cph/?fbclid=IwAR3I8XkW357aafZAyx0rgFem8T5hdJMSiQ2roAR74FaJzU4LjuM4TfsyNIo">
+						<div class="instagram-box">
+							<!-- <img class="outer-insta" src="{% static 'cpi/instagram.png' %}">
+							<img class="inner-insta" src="{% static 'cpi/shape.png' %}"> -->
+							<img class="insta-hover" src="{% static 'cpi/Instagram-red.png' %}">
+							<img class="insta-regular" src="{% static 'cpi/instagram2.png' %}">
+						</div>
+				    </a>
+				    <a href="https://www.youtube.com/channel/UCWVLw334maLEE7_1I3Pt_bg">
+						<div class="youtube-box">
+							<img class="yt-regular" src="{% static 'cpi/youtube3.png' %}">
+							<img class="yt-hover" src="{% static 'cpi/youtube-red.png' %}">
+						</div>
+				    </a>
+				</div>
+			</div>
+		</div>
 		<div class="footer-bottom" style="color:#FFFFFF;">
-			<img src="{% static 'cpi/Copyright.png' %}" style="margin-top: 4vh; margin-left: 2vw;">
+			<img class="desktop-image" src="{% static 'cpi/Copyright.png' %}" style="margin-top: 4vh; margin-left: 2vw;">
+			<img class="mobile-image1" src="{% static 'cpi/copyright-mobile.png' %}">
+			<img class="mobile-image2" src="{% static 'cpi/up-arrow.png' %}">
 		</div>
 	</div>
     <script src="{% static 'cpi/app.js' %}"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+         	$('.footer .footer-content-mobile .follow_us .social-box-lower .youtube-box').click(function() {
+			    $('.footer .footer-content-mobile .follow_us .social-box-lower .youtube-box .yt-hover').css('display', 'block');
+			    $('.footer .footer-content-mobile .follow_us .social-box-lower .youtube-box .yt-regular').css('display', 'none');
+			});
+		});
+    </script>
+    <script>
+    	$('.Project_page_slider').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: true,
+			dots: true,
+			infinite: false,
+			prevArrow: $('.controls-box-left'),
+			nextArrow: $('.controls-box-right'),
+    	});
+    </script> 
+    <script>
+		$(document).ready(function(){
+			$('.magnifying-glass').hover(function() {
+			    $('.search-box-input').css('visibility', "visible");
+			});	
+		});
+
+    </script>
+     <script>
+		$(document).ready(function(){
+			$('nav').mouseleave(function() {
+			    $('.search-box-input').css('visibility', "hidden");
+			});	
+		});
+
+    </script>
+     <script>
+		$(document).ready(function(){
+			$('.magnifying-glass').hover(function() {
+			    $('.input-off').css('display', "block");
+			});	
+		});
+
+    </script>
+     <script>
+		$(document).ready(function(){
+			$('.input-off').click(function() {
+			    $('.search-box-input').css('visibility', "hidden");
+			});	
+		});
+    </script>
+     <script>
+		$(document).ready(function(){
+			$('.input-off').click(function() {
+			    $('.input-off').css('display', "none");
+			});	
+		});
+    </script>
+    <script>
+		$(document).ready(function(){
+			$('.menu-close-box').click(function() {
+			    $('.menu-dropdown').css('right', '-100%');
+			});	
+		});
+    </script>
+
+    <script>
+		$(document).ready(function(){
+			$('.burger').click(function() {
+			    $('.menu-dropdown').css('right', '0%');
+			});	
+		});
+    </script>
+    <script>
+    	$('.container-projekti-mobile .Page_slide').slice(0,1).show();
+    	$('#load-more').on('click', function() {
+            $('.container-projekti-mobile .Page_slide:hidden').slice(0,1).slideDown();
+            if($('.container-projekti-mobile .Page_slide:hidden').length === 0) {
+                $('#load-more').fadeOut();
+            }
+        });
+    </script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$('.footer .footer-content-mobile .follow_us .social-box-upper .tweeter-box').click(function() {
+				$('.footer .footer-content-mobile .follow_us .social-box-upper .tweeter-box').css({'box-shadow': '1px 3px 18px -4px rgba(173,161,173,1)', 'border': '1px solid #E84F45'});
+				$('.footer .footer-content-mobile .follow_us .social-box-upper .tweeter-box .regular').css('display', 'none');
+				$('.footer .footer-content-mobile .follow_us .social-box-upper .tweeter-box .hover').css('display', 'block');
+			});
+		});		
+    </script>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+	    	$('.footer .footer-content-mobile .follow_us .social-box-upper .fb-box').click(function() {
+				$('.footer .footer-content-mobile .follow_us .social-box-upper .fb-box').css({'box-shadow': '1px 3px 18px -4px rgba(173,161,173,1)', 'border': '1px solid #E84F45'});
+				$('.footer .footer-content-mobile .follow_us .social-box-upper .fb-box .fb-regular').css('display', 'none');
+				$('.footer .footer-content-mobile .follow_us .social-box-upper .fb-box .fb-hover').css('display', 'block');
+			});
+		});
+    </script>
+    <script>
+    	$(document).ready(function(){
+            $('.footer .footer-content-mobile .follow_us .social-box-lower .instagram-box').click(function() {
+				$('.footer .footer-content-mobile .follow_us .social-box-lower .instagram-box').css({'box-shadow': '1px 3px 18px -4px rgba(173,161,173,1)', 'border': '1px solid #E84F45'});
+				$('.footer .footer-content-mobile .follow_us .social-box-lower .instagram-box .insta-regular').css('display', 'none');
+				$('.footer .footer-content-mobile .follow_us .social-box-lower .instagram-box .insta-hover').css('display', 'block');
+			});
+		});	 	 
+    </script>
+    <script type="text/javascript">
+	    $(document).ready(function(){
+			$('.footer .footer-content-mobile .follow_us .social-box-lower .youtube-box').click(function() {
+				$('.footer .footer-content-mobile .follow_us .social-box-lower .youtube-box').css( 'border', '1px solid #E84F45');
+			});
+		});		
+    </script>
 </body>
 </html>	

@@ -134,16 +134,16 @@
         <div class="line3"></div>
       </div>
     </nav>
-    <div class="container">
+    <div class="container" id="projekat-detalji-container">
 		<div class="o_nama_meni" style="width: 88.91%;">
 			<a href="{% url 'cpi-projekti-detalji' projekat.id %}"><div class="menu-itemM"><p id="misija">{% trans 'PROJEKAT' %}</p></div></a>
 			{% if 'en' not in request.path %}
 				{% for item in meni_list %}
-					<a href="{% url 'cpi-partneri' %}"><div class="menu-item"><p>{{ item }}</p></div></a>
+					<a href="{% url 'projekat-info' projekat.id  item  %}"><div class="menu-item"><p>{{ item }}</p></div></a>
 				{% endfor %}
 			{% else %}
 			    {% for item in menu_list %}
-			        <a href="{% url 'cpi-partneri' %}"><div class="menu-item"><p>{{ item }}</p></div></a>
+			        <a href="{% url 'projekat-info' projekat.id  item  %}"><div class="menu-item"><p>{{ item }}</p></div></a>
 			    {% endfor %}    
 			{% endif %}
 
@@ -167,7 +167,15 @@
       <div class="projekat_Opis">
         {{ projekat.Opis|safe }}
       </div>
-    </div>
-
-	</div>
+      {% if 'en' not in request.path %}
+        {% for item in meni_list %}
+          <a href="{% url 'projekat-info' projekat.id  item  %}"><div class="button"><p>{{ item }}</p></div></a>
+        {% endfor %}
+      {% else %}
+          {% for item in menu_list %}
+              <a href="{% url 'projekat-info' projekat.id  item %}"><div class="button"><p>{{ item }}</p></div></a>
+          {% endfor %}    
+      {% endif %}
+	  </div>
+  </div>
 {% endblock content %}

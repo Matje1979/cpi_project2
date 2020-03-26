@@ -1,20 +1,18 @@
 {% extends 'cpi/base.html' %}
-
 {% load i18n %}
 {% load static %}
-
 {% block content %}
-<div class="menu-dropdown">
+   <div class="menu-dropdown">
 		<div class="menu-close-box"><img src="{% static 'cpi/X.png' %}"></div>
-		<p class="menu-title">MENI</p>
+		<p class="menu-title">{% trans 'MENI' %}</p>
 		<ul class="menu-dropdown-list">
-			<li class="list-item"><a href="#">O NAMA</a></li>
-			<li class="list-item"><a href="#">PROJEKTI</a></li>
-			<li class="list-item" id="i-ture"><a href="#">ISTORIJSKE TURE</a></li>
-			<li class="list-item"><a href="#">PUBLIKACIJE</a></li>
+			<li class="list-item"><a href="{% url 'o-nama' %}">{% trans 'O NAMA' %}</a></li>
+			<li class="list-item"><a href="{% url 'cpi-projekti' %}">{% trans 'PROJEKTI' %}</a></li>
+			<li class="list-item" id="i-ture"><a href="{% url 'cpi-istorijske_ture' %}">{% trans 'ISTORIJSKE TURE' %}</a></li>
+			<li class="list-item"><a href="{% url 'cpi-publikacije' %}">{% trans 'PUBLIKACIJE' %}</a></li>
 		</ul>
 		 {% if 'en' not in request.path %}
-	        <ul class="nav-langs">
+	        <ul class="nav-langs" id="nav-langs">
 	            <li class="light"><a href="{{ url }}">SRB</a></li>
 	            <li class="li-regular"><a href="/en{{ url }}">ENG</a></li>
 	            <li class="form-box">
@@ -28,7 +26,7 @@
 		        </li>
 	        </ul>
 	      {% else %}
-	        <ul class="nav-langs">
+	        <ul class="nav-langs" id="nav-langs">
 	            <li class="li-regular"><a href="{{ url }}">SRB</a></li>
 	            <li class="light"><a href="/en{{ url }}">ENG</a></li>
 	            <li class="form-box">
@@ -41,7 +39,7 @@
 			        </form>
 		       </li>
 	        </ul>
-	    {% endif %}
+	      {% endif %}
 	</div>
 	<nav style="width: 100%;">
 		<a href="{% url 'cpi-naslovna' %}">
@@ -156,5 +154,4 @@
 		{% endfor %}
 	</div>
 </div>
-
 {% endblock content %}

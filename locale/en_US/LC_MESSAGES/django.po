@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-11 22:59+0100\n"
+"POT-Creation-Date: 2020-03-25 02:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,116 +17,422 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\cpi\templates\cpi\aktuelnosti.html:36 .\cpi\templates\cpi\b4.html:648
-#: .\cpi\templates\cpi\galerija.html:34
-#: .\cpi\templates\cpi\istorijske_ture.html:35
-#: .\cpi\templates\cpi\o_nama.html:35 .\cpi\templates\cpi\partneri.html:34
-#: .\cpi\templates\cpi\press.html:34
-#: .\cpi\templates\cpi\projekat_detalji.html:24
-#: .\cpi\templates\cpi\projekat_galerija.html:34
-#: .\cpi\templates\cpi\projekti.html:35
-#: .\cpi\templates\cpi\publikacija_detalji.html:34
-#: .\cpi\templates\cpi\publikacije.html:34 .\cpi\templates\cpi\tim.html:33
-#: .\cpi\templates\cpi\tim_clan.html:35
-#: .\cpi\templates\cpi\tura_detalji.html:35
+#: .\cpi\templates\cpi\aktuelnost_detalji.html:7
+#: .\cpi\templates\cpi\aktuelnosti.html:19 .\cpi\templates\cpi\b4.html:22
+#: .\cpi\templates\cpi\galerija.html:17
+#: .\cpi\templates\cpi\galerija_detalji.html:7
+#: .\cpi\templates\cpi\istorijske_ture.html:18
+#: .\cpi\templates\cpi\o_nama.html:18
+#: .\cpi\templates\cpi\potvrda_prijave.html:10
+#: .\cpi\templates\cpi\press.html:17
+#: .\cpi\templates\cpi\prijava_redirect.html:10
+#: .\cpi\templates\cpi\projekat_arhiva.html:7
+#: .\cpi\templates\cpi\projekat_galerija.html:17
+#: .\cpi\templates\cpi\projekat_izlozba.html:9
+#: .\cpi\templates\cpi\projekat_press.html:7
+#: .\cpi\templates\cpi\projekat_publikacije.html:18
+#: .\cpi\templates\cpi\projekti.html:18
+#: .\cpi\templates\cpi\publikacija_detalji.html:17
+#: .\cpi\templates\cpi\publikacije.html:18 .\cpi\templates\cpi\tim.html:17
+#: .\cpi\templates\cpi\tim_clan.html:18
+#: .\cpi\templates\cpi\tura_detalji.html:22 .\cpi\templates\cpi\video.html:17
+msgid "MENI"
+msgstr "MENU"
+
+#: .\cpi\templates\cpi\aktuelnost_detalji.html:9
+#: .\cpi\templates\cpi\aktuelnost_detalji.html:81
+#: .\cpi\templates\cpi\aktuelnosti.html:21
+#: .\cpi\templates\cpi\aktuelnosti.html:80 .\cpi\templates\cpi\b4.html:24
+#: .\cpi\templates\cpi\b4.html:845 .\cpi\templates\cpi\galerija.html:19
+#: .\cpi\templates\cpi\galerija.html:78
+#: .\cpi\templates\cpi\galerija_detalji.html:9
+#: .\cpi\templates\cpi\galerija_detalji.html:68
+#: .\cpi\templates\cpi\istorijske_ture.html:20
+#: .\cpi\templates\cpi\istorijske_ture.html:79
+#: .\cpi\templates\cpi\o_nama.html:20 .\cpi\templates\cpi\o_nama.html:79
+#: .\cpi\templates\cpi\partneri.html:79
+#: .\cpi\templates\cpi\potvrda_prijave.html:12
+#: .\cpi\templates\cpi\potvrda_prijave.html:74
+#: .\cpi\templates\cpi\press.html:19 .\cpi\templates\cpi\press.html:78
+#: .\cpi\templates\cpi\press_detalji.html:31
+#: .\cpi\templates\cpi\prijava.html:32
+#: .\cpi\templates\cpi\prijava_redirect.html:12
+#: .\cpi\templates\cpi\prijava_redirect.html:74
+#: .\cpi\templates\cpi\projekat_arhiva.html:9
+#: .\cpi\templates\cpi\projekat_arhiva.html:68
+#: .\cpi\templates\cpi\projekat_detalji.html:68
+#: .\cpi\templates\cpi\projekat_galerija.html:19
+#: .\cpi\templates\cpi\projekat_galerija.html:78
+#: .\cpi\templates\cpi\projekat_izlozba.html:11
+#: .\cpi\templates\cpi\projekat_izlozba.html:70
+#: .\cpi\templates\cpi\projekat_press.html:9
+#: .\cpi\templates\cpi\projekat_press.html:68
+#: .\cpi\templates\cpi\projekat_publikacije.html:20
+#: .\cpi\templates\cpi\projekat_publikacije.html:82
+#: .\cpi\templates\cpi\projekti.html:20 .\cpi\templates\cpi\projekti.html:79
+#: .\cpi\templates\cpi\publikacija_detalji.html:19
+#: .\cpi\templates\cpi\publikacija_detalji.html:78
+#: .\cpi\templates\cpi\publikacije.html:20
+#: .\cpi\templates\cpi\publikacije.html:82
+#: .\cpi\templates\cpi\rezultati_pretrage.html:30
+#: .\cpi\templates\cpi\sadrzaj.html:73 .\cpi\templates\cpi\tim.html:19
+#: .\cpi\templates\cpi\tim.html:78 .\cpi\templates\cpi\tim_clan.html:20
+#: .\cpi\templates\cpi\tim_clan.html:79
+#: .\cpi\templates\cpi\tura_detalji.html:24
+#: .\cpi\templates\cpi\tura_detalji.html:83 .\cpi\templates\cpi\video.html:19
+#: .\cpi\templates\cpi\video.html:78
 msgid "O NAMA"
 msgstr "ABOUT US"
 
-#: .\cpi\templates\cpi\aktuelnosti.html:44 .\cpi\templates\cpi\b4.html:291
-#: .\cpi\templates\cpi\b4.html:656 .\cpi\templates\cpi\galerija.html:42
-#: .\cpi\templates\cpi\istorijske_ture.html:43
-#: .\cpi\templates\cpi\o_nama.html:43 .\cpi\templates\cpi\partneri.html:38
-#: .\cpi\templates\cpi\press.html:42
-#: .\cpi\templates\cpi\projekat_detalji.html:32
-#: .\cpi\templates\cpi\projekat_galerija.html:42
-#: .\cpi\templates\cpi\projekti.html:43
-#: .\cpi\templates\cpi\publikacija_detalji.html:42
-#: .\cpi\templates\cpi\publikacije.html:42 .\cpi\templates\cpi\tim.html:41
-#: .\cpi\templates\cpi\tim_clan.html:39
-#: .\cpi\templates\cpi\tura_detalji.html:43
+#: .\cpi\templates\cpi\aktuelnost_detalji.html:10
+#: .\cpi\templates\cpi\aktuelnost_detalji.html:89
+#: .\cpi\templates\cpi\aktuelnosti.html:22
+#: .\cpi\templates\cpi\aktuelnosti.html:88 .\cpi\templates\cpi\b4.html:25
+#: .\cpi\templates\cpi\b4.html:526 .\cpi\templates\cpi\b4.html:853
+#: .\cpi\templates\cpi\galerija.html:20 .\cpi\templates\cpi\galerija.html:86
+#: .\cpi\templates\cpi\galerija_detalji.html:10
+#: .\cpi\templates\cpi\galerija_detalji.html:76
+#: .\cpi\templates\cpi\istorijske_ture.html:21
+#: .\cpi\templates\cpi\istorijske_ture.html:87
+#: .\cpi\templates\cpi\o_nama.html:21 .\cpi\templates\cpi\o_nama.html:87
+#: .\cpi\templates\cpi\partneri.html:87
+#: .\cpi\templates\cpi\potvrda_prijave.html:13
+#: .\cpi\templates\cpi\potvrda_prijave.html:82
+#: .\cpi\templates\cpi\press.html:20 .\cpi\templates\cpi\press.html:86
+#: .\cpi\templates\cpi\press_detalji.html:39
+#: .\cpi\templates\cpi\prijava.html:40
+#: .\cpi\templates\cpi\prijava_redirect.html:13
+#: .\cpi\templates\cpi\prijava_redirect.html:82
+#: .\cpi\templates\cpi\projekat_arhiva.html:10
+#: .\cpi\templates\cpi\projekat_arhiva.html:76
+#: .\cpi\templates\cpi\projekat_detalji.html:76
+#: .\cpi\templates\cpi\projekat_galerija.html:20
+#: .\cpi\templates\cpi\projekat_galerija.html:86
+#: .\cpi\templates\cpi\projekat_izlozba.html:12
+#: .\cpi\templates\cpi\projekat_izlozba.html:78
+#: .\cpi\templates\cpi\projekat_press.html:10
+#: .\cpi\templates\cpi\projekat_press.html:76
+#: .\cpi\templates\cpi\projekat_publikacije.html:21
+#: .\cpi\templates\cpi\projekat_publikacije.html:90
+#: .\cpi\templates\cpi\projekti.html:21 .\cpi\templates\cpi\projekti.html:87
+#: .\cpi\templates\cpi\publikacija_detalji.html:20
+#: .\cpi\templates\cpi\publikacija_detalji.html:86
+#: .\cpi\templates\cpi\publikacije.html:21
+#: .\cpi\templates\cpi\publikacije.html:90
+#: .\cpi\templates\cpi\rezultati_pretrage.html:38
+#: .\cpi\templates\cpi\sadrzaj.html:81 .\cpi\templates\cpi\tim.html:20
+#: .\cpi\templates\cpi\tim.html:86 .\cpi\templates\cpi\tim_clan.html:21
+#: .\cpi\templates\cpi\tim_clan.html:87
+#: .\cpi\templates\cpi\tura_detalji.html:25
+#: .\cpi\templates\cpi\tura_detalji.html:91 .\cpi\templates\cpi\video.html:20
+#: .\cpi\templates\cpi\video.html:86
 msgid "PROJEKTI"
 msgstr "PROJECTS"
 
-#: .\cpi\templates\cpi\aktuelnosti.html:52 .\cpi\templates\cpi\b4.html:664
-#: .\cpi\templates\cpi\galerija.html:50
-#: .\cpi\templates\cpi\istorijske_ture.html:51
-#: .\cpi\templates\cpi\o_nama.html:51 .\cpi\templates\cpi\partneri.html:46
-#: .\cpi\templates\cpi\press.html:50
-#: .\cpi\templates\cpi\projekat_detalji.html:40
-#: .\cpi\templates\cpi\projekat_galerija.html:50
-#: .\cpi\templates\cpi\projekti.html:51
-#: .\cpi\templates\cpi\publikacija_detalji.html:50
-#: .\cpi\templates\cpi\publikacije.html:50 .\cpi\templates\cpi\tim.html:49
-#: .\cpi\templates\cpi\tim_clan.html:47
-#: .\cpi\templates\cpi\tura_detalji.html:51
+#: .\cpi\templates\cpi\aktuelnost_detalji.html:11
+#: .\cpi\templates\cpi\aktuelnost_detalji.html:97
+#: .\cpi\templates\cpi\aktuelnosti.html:23
+#: .\cpi\templates\cpi\aktuelnosti.html:96 .\cpi\templates\cpi\b4.html:26
+#: .\cpi\templates\cpi\b4.html:861 .\cpi\templates\cpi\galerija.html:21
+#: .\cpi\templates\cpi\galerija.html:94
+#: .\cpi\templates\cpi\galerija_detalji.html:11
+#: .\cpi\templates\cpi\galerija_detalji.html:84
+#: .\cpi\templates\cpi\istorijske_ture.html:22
+#: .\cpi\templates\cpi\istorijske_ture.html:95
+#: .\cpi\templates\cpi\o_nama.html:22 .\cpi\templates\cpi\o_nama.html:95
+#: .\cpi\templates\cpi\partneri.html:95
+#: .\cpi\templates\cpi\potvrda_prijave.html:14
+#: .\cpi\templates\cpi\potvrda_prijave.html:90
+#: .\cpi\templates\cpi\press.html:21 .\cpi\templates\cpi\press.html:94
+#: .\cpi\templates\cpi\press_detalji.html:47
+#: .\cpi\templates\cpi\prijava.html:48
+#: .\cpi\templates\cpi\prijava_redirect.html:14
+#: .\cpi\templates\cpi\prijava_redirect.html:90
+#: .\cpi\templates\cpi\projekat_arhiva.html:11
+#: .\cpi\templates\cpi\projekat_arhiva.html:84
+#: .\cpi\templates\cpi\projekat_detalji.html:84
+#: .\cpi\templates\cpi\projekat_galerija.html:21
+#: .\cpi\templates\cpi\projekat_galerija.html:94
+#: .\cpi\templates\cpi\projekat_izlozba.html:13
+#: .\cpi\templates\cpi\projekat_izlozba.html:86
+#: .\cpi\templates\cpi\projekat_press.html:11
+#: .\cpi\templates\cpi\projekat_press.html:84
+#: .\cpi\templates\cpi\projekat_publikacije.html:22
+#: .\cpi\templates\cpi\projekat_publikacije.html:98
+#: .\cpi\templates\cpi\projekti.html:22 .\cpi\templates\cpi\projekti.html:95
+#: .\cpi\templates\cpi\publikacija_detalji.html:21
+#: .\cpi\templates\cpi\publikacija_detalji.html:94
+#: .\cpi\templates\cpi\publikacije.html:22
+#: .\cpi\templates\cpi\publikacije.html:98
+#: .\cpi\templates\cpi\rezultati_pretrage.html:46
+#: .\cpi\templates\cpi\sadrzaj.html:89 .\cpi\templates\cpi\tim.html:21
+#: .\cpi\templates\cpi\tim.html:94 .\cpi\templates\cpi\tim_clan.html:22
+#: .\cpi\templates\cpi\tim_clan.html:95
+#: .\cpi\templates\cpi\tura_detalji.html:26
+#: .\cpi\templates\cpi\tura_detalji.html:99 .\cpi\templates\cpi\video.html:21
+#: .\cpi\templates\cpi\video.html:94
 msgid "ISTORIJSKE TURE"
 msgstr "HISTORY TOURS"
 
-#: .\cpi\templates\cpi\aktuelnosti.html:60 .\cpi\templates\cpi\b4.html:484
-#: .\cpi\templates\cpi\b4.html:672 .\cpi\templates\cpi\galerija.html:58
-#: .\cpi\templates\cpi\istorijske_ture.html:59
-#: .\cpi\templates\cpi\o_nama.html:59 .\cpi\templates\cpi\partneri.html:54
-#: .\cpi\templates\cpi\press.html:58
-#: .\cpi\templates\cpi\projekat_detalji.html:48
-#: .\cpi\templates\cpi\projekat_detalji.html:93
-#: .\cpi\templates\cpi\projekat_galerija.html:58
-#: .\cpi\templates\cpi\projekti.html:59
-#: .\cpi\templates\cpi\publikacija_detalji.html:58
-#: .\cpi\templates\cpi\publikacije.html:58 .\cpi\templates\cpi\tim.html:57
-#: .\cpi\templates\cpi\tim_clan.html:55
-#: .\cpi\templates\cpi\tura_detalji.html:59
+#: .\cpi\templates\cpi\aktuelnost_detalji.html:12
+#: .\cpi\templates\cpi\aktuelnost_detalji.html:105
+#: .\cpi\templates\cpi\aktuelnosti.html:24
+#: .\cpi\templates\cpi\aktuelnosti.html:104 .\cpi\templates\cpi\b4.html:27
+#: .\cpi\templates\cpi\b4.html:784 .\cpi\templates\cpi\b4.html:869
+#: .\cpi\templates\cpi\galerija.html:22 .\cpi\templates\cpi\galerija.html:102
+#: .\cpi\templates\cpi\galerija_detalji.html:12
+#: .\cpi\templates\cpi\galerija_detalji.html:92
+#: .\cpi\templates\cpi\istorijske_ture.html:23
+#: .\cpi\templates\cpi\istorijske_ture.html:103
+#: .\cpi\templates\cpi\o_nama.html:23 .\cpi\templates\cpi\o_nama.html:103
+#: .\cpi\templates\cpi\partneri.html:103
+#: .\cpi\templates\cpi\potvrda_prijave.html:15
+#: .\cpi\templates\cpi\potvrda_prijave.html:98
+#: .\cpi\templates\cpi\press.html:22 .\cpi\templates\cpi\press.html:102
+#: .\cpi\templates\cpi\press_detalji.html:55
+#: .\cpi\templates\cpi\prijava.html:56
+#: .\cpi\templates\cpi\prijava_redirect.html:15
+#: .\cpi\templates\cpi\prijava_redirect.html:98
+#: .\cpi\templates\cpi\projekat_arhiva.html:12
+#: .\cpi\templates\cpi\projekat_arhiva.html:92
+#: .\cpi\templates\cpi\projekat_detalji.html:92
+#: .\cpi\templates\cpi\projekat_detalji.html:150
+#: .\cpi\templates\cpi\projekat_galerija.html:22
+#: .\cpi\templates\cpi\projekat_galerija.html:102
+#: .\cpi\templates\cpi\projekat_izlozba.html:14
+#: .\cpi\templates\cpi\projekat_izlozba.html:94
+#: .\cpi\templates\cpi\projekat_press.html:12
+#: .\cpi\templates\cpi\projekat_press.html:92
+#: .\cpi\templates\cpi\projekat_publikacije.html:23
+#: .\cpi\templates\cpi\projekat_publikacije.html:106
+#: .\cpi\templates\cpi\projekti.html:23 .\cpi\templates\cpi\projekti.html:103
+#: .\cpi\templates\cpi\publikacija_detalji.html:22
+#: .\cpi\templates\cpi\publikacija_detalji.html:102
+#: .\cpi\templates\cpi\publikacije.html:23
+#: .\cpi\templates\cpi\publikacije.html:106
+#: .\cpi\templates\cpi\rezultati_pretrage.html:54
+#: .\cpi\templates\cpi\sadrzaj.html:97 .\cpi\templates\cpi\tim.html:22
+#: .\cpi\templates\cpi\tim.html:102 .\cpi\templates\cpi\tim_clan.html:23
+#: .\cpi\templates\cpi\tim_clan.html:103
+#: .\cpi\templates\cpi\tura_detalji.html:27
+#: .\cpi\templates\cpi\tura_detalji.html:107 .\cpi\templates\cpi\video.html:22
+#: .\cpi\templates\cpi\video.html:102
 msgid "PUBLIKACIJE"
 msgstr "PUBLICATIONS"
 
-#: .\cpi\templates\cpi\aktuelnosti.html:103
-#: .\cpi\templates\cpi\aktuelnosti.html:146 .\cpi\templates\cpi\b4.html:130
-#: .\cpi\templates\cpi\b4.html:157 .\cpi\templates\cpi\b4.html:180
-#: .\cpi\templates\cpi\press.html:106 .\cpi\templates\cpi\press.html:118
-#: .\cpi\templates\cpi\press.html:129 .\cpi\templates\cpi\publikacije.html:141
-#: .\cpi\templates\cpi\tim.html:116 .\cpi\templates\cpi\tim.html:140
+#: .\cpi\templates\cpi\aktuelnosti.html:161
+#: .\cpi\templates\cpi\aktuelnosti.html:217
+#: .\cpi\templates\cpi\aktuelnosti.html:274 .\cpi\templates\cpi\b4.html:199
+#: .\cpi\templates\cpi\b4.html:241 .\cpi\templates\cpi\b4.html:279
+#: .\cpi\templates\cpi\b4.html:309 .\cpi\templates\cpi\b4.html:473
+#: .\cpi\templates\cpi\press.html:168
+#: .\cpi\templates\cpi\projekat_press.html:164
 msgid "PROČITAJ VIŠE"
 msgstr "READ MORE"
 
-#: .\cpi\templates\cpi\b4.html:44
+#: .\cpi\templates\cpi\aktuelnosti.html:342 .\cpi\templates\cpi\b4.html:937
+#: .\cpi\templates\cpi\base.html:46 .\cpi\templates\cpi\galerija.html:179
+#: .\cpi\templates\cpi\istorijske_ture.html:239
+#: .\cpi\templates\cpi\o_nama.html:211 .\cpi\templates\cpi\partneri.html:183
+#: .\cpi\templates\cpi\press.html:190
+#: .\cpi\templates\cpi\projekat_galerija.html:173
+#: .\cpi\templates\cpi\projekat_publikacije.html:211
+#: .\cpi\templates\cpi\projekti.html:267
+#: .\cpi\templates\cpi\publikacija_detalji.html:176
+#: .\cpi\templates\cpi\publikacije.html:310 .\cpi\templates\cpi\tim.html:250
+#: .\cpi\templates\cpi\tim_clan.html:191
+#: .\cpi\templates\cpi\tura_detalji.html:179
+#: .\cpi\templates\cpi\video.html:167
+msgid "O nama"
+msgstr "About us"
+
+#: .\cpi\templates\cpi\aktuelnosti.html:350 .\cpi\templates\cpi\b4.html:945
+#: .\cpi\templates\cpi\base.html:54 .\cpi\templates\cpi\galerija.html:187
+#: .\cpi\templates\cpi\istorijske_ture.html:247
+#: .\cpi\templates\cpi\o_nama.html:219 .\cpi\templates\cpi\partneri.html:191
+#: .\cpi\templates\cpi\press.html:198
+#: .\cpi\templates\cpi\projekat_galerija.html:181
+#: .\cpi\templates\cpi\projekat_publikacije.html:219
+#: .\cpi\templates\cpi\projekti.html:275
+#: .\cpi\templates\cpi\publikacija_detalji.html:184
+#: .\cpi\templates\cpi\publikacije.html:318 .\cpi\templates\cpi\tim.html:258
+#: .\cpi\templates\cpi\tim_clan.html:199
+#: .\cpi\templates\cpi\tura_detalji.html:187
+#: .\cpi\templates\cpi\video.html:175
+msgid "Projekti"
+msgstr "Projects"
+
+#: .\cpi\templates\cpi\aktuelnosti.html:358 .\cpi\templates\cpi\b4.html:953
+#: .\cpi\templates\cpi\base.html:62 .\cpi\templates\cpi\galerija.html:195
+#: .\cpi\templates\cpi\istorijske_ture.html:255
+#: .\cpi\templates\cpi\o_nama.html:227 .\cpi\templates\cpi\partneri.html:199
+#: .\cpi\templates\cpi\press.html:206
+#: .\cpi\templates\cpi\projekat_galerija.html:189
+#: .\cpi\templates\cpi\projekat_publikacije.html:227
+#: .\cpi\templates\cpi\projekti.html:283
+#: .\cpi\templates\cpi\publikacija_detalji.html:192
+#: .\cpi\templates\cpi\publikacije.html:326 .\cpi\templates\cpi\tim.html:266
+#: .\cpi\templates\cpi\tim_clan.html:207
+#: .\cpi\templates\cpi\tura_detalji.html:195
+#: .\cpi\templates\cpi\video.html:183
+msgid "Istorijske ture"
+msgstr "History tours"
+
+#: .\cpi\templates\cpi\aktuelnosti.html:366 .\cpi\templates\cpi\b4.html:961
+#: .\cpi\templates\cpi\base.html:70 .\cpi\templates\cpi\galerija.html:203
+#: .\cpi\templates\cpi\istorijske_ture.html:263
+#: .\cpi\templates\cpi\o_nama.html:235 .\cpi\templates\cpi\partneri.html:207
+#: .\cpi\templates\cpi\press.html:214
+#: .\cpi\templates\cpi\projekat_galerija.html:197
+#: .\cpi\templates\cpi\projekat_publikacije.html:235
+#: .\cpi\templates\cpi\projekti.html:291
+#: .\cpi\templates\cpi\publikacija_detalji.html:200
+#: .\cpi\templates\cpi\publikacije.html:334 .\cpi\templates\cpi\tim.html:274
+#: .\cpi\templates\cpi\tim_clan.html:215
+#: .\cpi\templates\cpi\tura_detalji.html:203
+#: .\cpi\templates\cpi\video.html:191
+msgid "Publikacije"
+msgstr "Publications"
+
+#: .\cpi\templates\cpi\aktuelnosti.html:374 .\cpi\templates\cpi\b4.html:969
+#: .\cpi\templates\cpi\base.html:78 .\cpi\templates\cpi\galerija.html:211
+#: .\cpi\templates\cpi\istorijske_ture.html:271
+#: .\cpi\templates\cpi\o_nama.html:243 .\cpi\templates\cpi\partneri.html:215
+#: .\cpi\templates\cpi\press.html:222
+#: .\cpi\templates\cpi\projekat_galerija.html:205
+#: .\cpi\templates\cpi\projekat_publikacije.html:243
+#: .\cpi\templates\cpi\projekti.html:299
+#: .\cpi\templates\cpi\publikacija_detalji.html:208
+#: .\cpi\templates\cpi\publikacije.html:342 .\cpi\templates\cpi\tim.html:282
+#: .\cpi\templates\cpi\tim_clan.html:223
+#: .\cpi\templates\cpi\tura_detalji.html:211
+#: .\cpi\templates\cpi\video.html:199
+msgid "Aktivnosti"
+msgstr "Activities"
+
+#: .\cpi\templates\cpi\aktuelnosti.html:381
+#: .\cpi\templates\cpi\aktuelnosti.html:470 .\cpi\templates\cpi\b4.html:976
+#: .\cpi\templates\cpi\b4.html:1065 .\cpi\templates\cpi\base.html:85
+#: .\cpi\templates\cpi\base.html:174 .\cpi\templates\cpi\galerija.html:218
+#: .\cpi\templates\cpi\galerija.html:308
+#: .\cpi\templates\cpi\istorijske_ture.html:278
+#: .\cpi\templates\cpi\istorijske_ture.html:367
+#: .\cpi\templates\cpi\o_nama.html:250 .\cpi\templates\cpi\o_nama.html:340
+#: .\cpi\templates\cpi\partneri.html:222 .\cpi\templates\cpi\partneri.html:312
+#: .\cpi\templates\cpi\press.html:229 .\cpi\templates\cpi\press.html:319
+#: .\cpi\templates\cpi\projekat_galerija.html:212
+#: .\cpi\templates\cpi\projekat_galerija.html:301
+#: .\cpi\templates\cpi\projekat_publikacije.html:250
+#: .\cpi\templates\cpi\projekat_publikacije.html:339
+#: .\cpi\templates\cpi\projekti.html:306 .\cpi\templates\cpi\projekti.html:395
+#: .\cpi\templates\cpi\publikacija_detalji.html:215
+#: .\cpi\templates\cpi\publikacija_detalji.html:304
+#: .\cpi\templates\cpi\publikacije.html:349
+#: .\cpi\templates\cpi\publikacije.html:438 .\cpi\templates\cpi\tim.html:289
+#: .\cpi\templates\cpi\tim.html:379 .\cpi\templates\cpi\tim_clan.html:230
+#: .\cpi\templates\cpi\tim_clan.html:319
+#: .\cpi\templates\cpi\tura_detalji.html:218
+#: .\cpi\templates\cpi\tura_detalji.html:308
+#: .\cpi\templates\cpi\video.html:206 .\cpi\templates\cpi\video.html:296
+msgid "Pratite nas"
+msgstr "Follow us"
+
+#: .\cpi\templates\cpi\aktuelnosti.html:411
+#: .\cpi\templates\cpi\aktuelnosti.html:461 .\cpi\templates\cpi\b4.html:1006
+#: .\cpi\templates\cpi\b4.html:1056 .\cpi\templates\cpi\base.html:115
+#: .\cpi\templates\cpi\base.html:165 .\cpi\templates\cpi\galerija.html:249
+#: .\cpi\templates\cpi\galerija.html:299
+#: .\cpi\templates\cpi\istorijske_ture.html:308
+#: .\cpi\templates\cpi\istorijske_ture.html:358
+#: .\cpi\templates\cpi\o_nama.html:281 .\cpi\templates\cpi\o_nama.html:331
+#: .\cpi\templates\cpi\partneri.html:253 .\cpi\templates\cpi\partneri.html:303
+#: .\cpi\templates\cpi\press.html:260 .\cpi\templates\cpi\press.html:310
+#: .\cpi\templates\cpi\projekat_galerija.html:242
+#: .\cpi\templates\cpi\projekat_galerija.html:292
+#: .\cpi\templates\cpi\projekat_publikacije.html:280
+#: .\cpi\templates\cpi\projekat_publikacije.html:330
+#: .\cpi\templates\cpi\projekti.html:336 .\cpi\templates\cpi\projekti.html:386
+#: .\cpi\templates\cpi\publikacija_detalji.html:245
+#: .\cpi\templates\cpi\publikacija_detalji.html:295
+#: .\cpi\templates\cpi\publikacije.html:379
+#: .\cpi\templates\cpi\publikacije.html:429 .\cpi\templates\cpi\tim.html:320
+#: .\cpi\templates\cpi\tim.html:370 .\cpi\templates\cpi\tim_clan.html:260
+#: .\cpi\templates\cpi\tim_clan.html:310
+#: .\cpi\templates\cpi\tura_detalji.html:249
+#: .\cpi\templates\cpi\video.html:237 .\cpi\templates\cpi\video.html:287
+msgid "Kontakt"
+msgstr "Contact"
+
+#: .\cpi\templates\cpi\aktuelnosti.html:438
+#: .\cpi\templates\cpi\aktuelnosti.html:457 .\cpi\templates\cpi\b4.html:1033
+#: .\cpi\templates\cpi\b4.html:1052 .\cpi\templates\cpi\base.html:142
+#: .\cpi\templates\cpi\base.html:161 .\cpi\templates\cpi\galerija.html:276
+#: .\cpi\templates\cpi\galerija.html:295
+#: .\cpi\templates\cpi\istorijske_ture.html:335
+#: .\cpi\templates\cpi\istorijske_ture.html:354
+#: .\cpi\templates\cpi\o_nama.html:308 .\cpi\templates\cpi\o_nama.html:327
+#: .\cpi\templates\cpi\partneri.html:280 .\cpi\templates\cpi\partneri.html:299
+#: .\cpi\templates\cpi\press.html:287 .\cpi\templates\cpi\press.html:306
+#: .\cpi\templates\cpi\projekat_galerija.html:269
+#: .\cpi\templates\cpi\projekat_galerija.html:288
+#: .\cpi\templates\cpi\projekat_publikacije.html:307
+#: .\cpi\templates\cpi\projekat_publikacije.html:326
+#: .\cpi\templates\cpi\projekti.html:363 .\cpi\templates\cpi\projekti.html:382
+#: .\cpi\templates\cpi\publikacija_detalji.html:272
+#: .\cpi\templates\cpi\publikacija_detalji.html:291
+#: .\cpi\templates\cpi\publikacije.html:406
+#: .\cpi\templates\cpi\publikacije.html:425 .\cpi\templates\cpi\tim.html:347
+#: .\cpi\templates\cpi\tim.html:366 .\cpi\templates\cpi\tim_clan.html:287
+#: .\cpi\templates\cpi\tim_clan.html:306
+#: .\cpi\templates\cpi\tura_detalji.html:276
+#: .\cpi\templates\cpi\video.html:264 .\cpi\templates\cpi\video.html:283
+msgid "Adresa"
+msgstr "Address"
+
+#: .\cpi\templates\cpi\b4.html:64 .\cpi\templates\cpi\b4.html:100
 msgid "Centar za primenjenu istoriju"
 msgstr "Center for Public History"
 
-#: .\cpi\templates\cpi\b4.html:47 .\cpi\templates\cpi\b4.html:79
-#: .\cpi\templates\cpi\b4.html:304 .\cpi\templates\cpi\b4.html:317
+#: .\cpi\templates\cpi\b4.html:67 .\cpi\templates\cpi\b4.html:104
+#: .\cpi\templates\cpi\b4.html:143 .\cpi\templates\cpi\b4.html:539
+#: .\cpi\templates\cpi\b4.html:552
 msgid "SAZNAJ VIŠE"
 msgstr "LEARN MORE"
 
-#: .\cpi\templates\cpi\b4.html:76
-msgid "Inicijativa za očuvanje Topovskih šupa"
-msgstr ""
-
-#: .\cpi\templates\cpi\b4.html:108
-#, fuzzy
-#| msgid ""
-#| "Jednodnevna javna vodjenja, studijske posete i višednevne istorijske ture "
-#| "na lokacije od istorijskog značaja"
-msgid "Javna vodjenja i studijske posete na lokacije od istorijskog značaja"
-msgstr ""
-"One day open tours, study visits and multiple day history excursions to "
-"historicaly significant locations"
-
-#: .\cpi\templates\cpi\b4.html:111
+#: .\cpi\templates\cpi\b4.html:178 .\cpi\templates\cpi\b4.html:922
+#: .\cpi\templates\cpi\b4.html:1113
 msgid "REZERVIŠI"
-msgstr ""
+msgstr "RESERVE"
 
-#: .\cpi\templates\cpi\b4.html:119 .\cpi\templates\cpi\b4.html:280
+#: .\cpi\templates\cpi\b4.html:187 .\cpi\templates\cpi\b4.html:457
+#: .\cpi\templates\cpi\b4.html:514
 msgid "AKTUELNOSTI"
 msgstr "LATEST ACTIVITIES"
 
-#: .\cpi\templates\cpi\b4.html:364
+#: .\cpi\templates\cpi\b4.html:599 .\cpi\templates\cpi\b4.html:701
 msgid "FOTO GALERIJA"
 msgstr "PHOTO GALLERY"
 
-#: .\cpi\templates\cpi\b4.html:706
-msgid "Rezervišite turu"
+#: .\cpi\templates\cpi\b4.html:746 .\cpi\templates\cpi\galerija.html:152
+#: .\cpi\templates\cpi\galerija.html:157 .\cpi\templates\cpi\o_nama.html:153
+#: .\cpi\templates\cpi\o_nama.html:198 .\cpi\templates\cpi\partneri.html:153
+#: .\cpi\templates\cpi\partneri.html:159 .\cpi\templates\cpi\press.html:152
+#: .\cpi\templates\cpi\press.html:158
+#: .\cpi\templates\cpi\projekat_arhiva.html:142
+#: .\cpi\templates\cpi\projekat_arhiva.html:148
+#: .\cpi\templates\cpi\projekat_detalji.html:153
+#: .\cpi\templates\cpi\projekat_press.html:148
+#: .\cpi\templates\cpi\projekat_press.html:154
+#: .\cpi\templates\cpi\tim.html:152 .\cpi\templates\cpi\tim.html:237
+#: .\cpi\templates\cpi\tim_clan.html:153
+msgid "GALERIJA"
+msgstr "PHOTO GALLERY"
+
+#: .\cpi\templates\cpi\b4.html:919 .\cpi\templates\cpi\b4.html:1104
+msgid "Rezervišite vođenje"
 msgstr "Reserve a tour"
 
-#: .\cpi\templates\cpi\b4.html:707
+#: .\cpi\templates\cpi\b4.html:920
 msgid ""
 "Jednodnevna javna vodjenja, studijske posete i višednevne istorijske ture na "
 "lokacije od istorijskog značaja"
@@ -134,114 +440,98 @@ msgstr ""
 "One day open tours, study visits and multiple day history excursions to "
 "historicaly significant locations"
 
-#: .\cpi\templates\cpi\b4.html:719 .\cpi\templates\cpi\base.html:41
-#: .\cpi\templates\cpi\galerija.html:155 .\cpi\templates\cpi\o_nama.html:130
-#: .\cpi\templates\cpi\partneri.html:115 .\cpi\templates\cpi\press.html:145
-#: .\cpi\templates\cpi\projekat_galerija.html:115
-#: .\cpi\templates\cpi\tim.html:163 .\cpi\templates\cpi\tim_clan.html:117
-msgid "O nama"
-msgstr "About us"
+#: .\cpi\templates\cpi\b4.html:1108
+msgid "Ime"
+msgstr "Name"
 
-#: .\cpi\templates\cpi\b4.html:727 .\cpi\templates\cpi\base.html:49
-#: .\cpi\templates\cpi\galerija.html:163 .\cpi\templates\cpi\o_nama.html:138
-#: .\cpi\templates\cpi\partneri.html:123 .\cpi\templates\cpi\press.html:153
-#: .\cpi\templates\cpi\projekat_galerija.html:123
-#: .\cpi\templates\cpi\tim.html:171 .\cpi\templates\cpi\tim_clan.html:125
-msgid "Projekti"
-msgstr "Projects"
+#: .\cpi\templates\cpi\b4.html:1109
+msgid "Prezime"
+msgstr "Surname"
 
-#: .\cpi\templates\cpi\b4.html:735 .\cpi\templates\cpi\base.html:57
-#: .\cpi\templates\cpi\galerija.html:171 .\cpi\templates\cpi\o_nama.html:146
-#: .\cpi\templates\cpi\partneri.html:131 .\cpi\templates\cpi\press.html:161
-#: .\cpi\templates\cpi\projekat_galerija.html:131
-#: .\cpi\templates\cpi\tim.html:179 .\cpi\templates\cpi\tim_clan.html:133
-msgid "Istorijske ture"
-msgstr "History tours"
+#: .\cpi\templates\cpi\b4.html:1110
+msgid "Email"
+msgstr "Email"
 
-#: .\cpi\templates\cpi\b4.html:743 .\cpi\templates\cpi\base.html:65
-#: .\cpi\templates\cpi\galerija.html:179 .\cpi\templates\cpi\o_nama.html:154
-#: .\cpi\templates\cpi\partneri.html:139 .\cpi\templates\cpi\press.html:169
-#: .\cpi\templates\cpi\projekat_galerija.html:139
-#: .\cpi\templates\cpi\tim.html:187 .\cpi\templates\cpi\tim_clan.html:141
-msgid "Publikacije"
-msgstr "Publications"
+#: .\cpi\templates\cpi\b4.html:1111
+msgid "Koje vođenje bi želeli da rezervišete?"
+msgstr "What tour would you like to reserve?"
 
-#: .\cpi\templates\cpi\b4.html:751 .\cpi\templates\cpi\base.html:73
-#: .\cpi\templates\cpi\galerija.html:187 .\cpi\templates\cpi\o_nama.html:162
-#: .\cpi\templates\cpi\partneri.html:147 .\cpi\templates\cpi\press.html:177
-#: .\cpi\templates\cpi\projekat_galerija.html:147
-#: .\cpi\templates\cpi\tim.html:195 .\cpi\templates\cpi\tim_clan.html:149
-msgid "Aktivnosti"
-msgstr "Activities"
-
-#: .\cpi\templates\cpi\b4.html:758 .\cpi\templates\cpi\base.html:80
-#: .\cpi\templates\cpi\galerija.html:194 .\cpi\templates\cpi\o_nama.html:169
-#: .\cpi\templates\cpi\partneri.html:154 .\cpi\templates\cpi\press.html:184
-#: .\cpi\templates\cpi\projekat_galerija.html:154
-#: .\cpi\templates\cpi\tim.html:202 .\cpi\templates\cpi\tim_clan.html:156
-msgid "Pratite nas"
-msgstr "Follow us"
-
-#: .\cpi\templates\cpi\b4.html:789 .\cpi\templates\cpi\base.html:110
-#: .\cpi\templates\cpi\galerija.html:225 .\cpi\templates\cpi\o_nama.html:200
-#: .\cpi\templates\cpi\partneri.html:185 .\cpi\templates\cpi\press.html:215
-#: .\cpi\templates\cpi\projekat_galerija.html:185
-#: .\cpi\templates\cpi\tim.html:233 .\cpi\templates\cpi\tim_clan.html:187
-msgid "Kontakt"
-msgstr "Contact"
-
-#: .\cpi\templates\cpi\b4.html:816 .\cpi\templates\cpi\base.html:137
-#: .\cpi\templates\cpi\galerija.html:252 .\cpi\templates\cpi\o_nama.html:227
-#: .\cpi\templates\cpi\partneri.html:212 .\cpi\templates\cpi\press.html:242
-#: .\cpi\templates\cpi\projekat_galerija.html:212
-#: .\cpi\templates\cpi\tim.html:260 .\cpi\templates\cpi\tim_clan.html:214
-msgid "Adresa"
-msgstr "Address"
-
-#: .\cpi\templates\cpi\galerija.html:92 .\cpi\templates\cpi\o_nama.html:93
-#: .\cpi\templates\cpi\partneri.html:88 .\cpi\templates\cpi\press.html:92
-#: .\cpi\templates\cpi\projekat_galerija.html:92
+#: .\cpi\templates\cpi\galerija.html:149 .\cpi\templates\cpi\galerija.html:155
+#: .\cpi\templates\cpi\o_nama.html:150 .\cpi\templates\cpi\o_nama.html:178
+#: .\cpi\templates\cpi\partneri.html:150 .\cpi\templates\cpi\partneri.html:157
+#: .\cpi\templates\cpi\press.html:149 .\cpi\templates\cpi\press.html:156
+#: .\cpi\templates\cpi\projekat_arhiva.html:139
+#: .\cpi\templates\cpi\projekat_arhiva.html:146
+#: .\cpi\templates\cpi\projekat_press.html:145
+#: .\cpi\templates\cpi\projekat_press.html:152
+#: .\cpi\templates\cpi\tim.html:149 .\cpi\templates\cpi\tim.html:202
+#: .\cpi\templates\cpi\tim_clan.html:150
 msgid "MISIJA"
 msgstr "OUR MISION"
 
-#: .\cpi\templates\cpi\galerija.html:93 .\cpi\templates\cpi\partneri.html:89
-#: .\cpi\templates\cpi\press.html:93
-#: .\cpi\templates\cpi\projekat_galerija.html:93
+#: .\cpi\templates\cpi\galerija.html:150 .\cpi\templates\cpi\galerija.html:156
+#: .\cpi\templates\cpi\o_nama.html:151 .\cpi\templates\cpi\o_nama.html:197
+#: .\cpi\templates\cpi\partneri.html:151 .\cpi\templates\cpi\partneri.html:158
+#: .\cpi\templates\cpi\press.html:150 .\cpi\templates\cpi\press.html:157
+#: .\cpi\templates\cpi\projekat_arhiva.html:140
+#: .\cpi\templates\cpi\projekat_arhiva.html:147
+#: .\cpi\templates\cpi\projekat_press.html:146
+#: .\cpi\templates\cpi\projekat_press.html:153
+#: .\cpi\templates\cpi\tim.html:150 .\cpi\templates\cpi\tim.html:203
+#: .\cpi\templates\cpi\tim_clan.html:151
 msgid "TIM"
 msgstr "OUR TEAM"
 
-#: .\cpi\templates\cpi\galerija.html:94 .\cpi\templates\cpi\o_nama.html:95
-#: .\cpi\templates\cpi\partneri.html:90 .\cpi\templates\cpi\press.html:94
-#: .\cpi\templates\cpi\projekat_galerija.html:94
+#: .\cpi\templates\cpi\galerija.html:151 .\cpi\templates\cpi\galerija.html:167
+#: .\cpi\templates\cpi\o_nama.html:152 .\cpi\templates\cpi\o_nama.html:199
+#: .\cpi\templates\cpi\partneri.html:152 .\cpi\templates\cpi\partneri.html:160
+#: .\cpi\templates\cpi\press.html:151 .\cpi\templates\cpi\press.html:159
+#: .\cpi\templates\cpi\projekat_arhiva.html:141
+#: .\cpi\templates\cpi\projekat_arhiva.html:149
+#: .\cpi\templates\cpi\projekat_press.html:147
+#: .\cpi\templates\cpi\projekat_press.html:155
+#: .\cpi\templates\cpi\tim.html:151 .\cpi\templates\cpi\tim.html:238
+#: .\cpi\templates\cpi\tim_clan.html:152
 msgid "PARTNERI"
 msgstr "PARTNERS"
 
-#: .\cpi\templates\cpi\galerija.html:96 .\cpi\templates\cpi\o_nama.html:97
-#: .\cpi\templates\cpi\partneri.html:92 .\cpi\templates\cpi\press.html:96
-#: .\cpi\templates\cpi\projekat_detalji.html:95
-#: .\cpi\templates\cpi\projekat_galerija.html:96
+#: .\cpi\templates\cpi\galerija.html:153 .\cpi\templates\cpi\galerija.html:168
+#: .\cpi\templates\cpi\o_nama.html:154 .\cpi\templates\cpi\o_nama.html:200
+#: .\cpi\templates\cpi\partneri.html:154 .\cpi\templates\cpi\partneri.html:171
+#: .\cpi\templates\cpi\press.html:153 .\cpi\templates\cpi\press.html:160
+#: .\cpi\templates\cpi\projekat_arhiva.html:143
+#: .\cpi\templates\cpi\projekat_arhiva.html:150
+#: .\cpi\templates\cpi\projekat_detalji.html:152
+#: .\cpi\templates\cpi\projekat_press.html:149
+#: .\cpi\templates\cpi\projekat_press.html:156
+#: .\cpi\templates\cpi\tim.html:153 .\cpi\templates\cpi\tim.html:239
+#: .\cpi\templates\cpi\tim_clan.html:154
 msgid "PRESS"
 msgstr ""
 
-#: .\cpi\templates\cpi\istorijske_ture.html:125
+#: .\cpi\templates\cpi\galerija.html:166 .\cpi\templates\cpi\projekti.html:230
+#: .\cpi\templates\cpi\projekti.html:252 .\cpi\templates\cpi\video.html:156
+msgid "PRIKAŽI JOŠ"
+msgstr "SEE MORE"
+
+#: .\cpi\templates\cpi\istorijske_ture.html:184
+#: .\cpi\templates\cpi\istorijske_ture.html:227
 #, fuzzy
 #| msgid "Trenutno nema nikog u ekipi."
 msgid "Trenutno nema tura."
 msgstr "Currently our team has no members."
 
-#: .\cpi\templates\cpi\o_nama.html:96 .\cpi\templates\cpi\partneri.html:91
-#: .\cpi\templates\cpi\press.html:95
-#: .\cpi\templates\cpi\projekat_detalji.html:96
-msgid "GALERIJA"
-msgstr "PHOTO GALLERY"
-
-#: .\cpi\templates\cpi\partneri.html:12
+#: .\cpi\templates\cpi\partneri.html:13
 #, fuzzy
 #| msgid "Naši partneri"
 msgid "Partneri"
 msgstr "Our partners"
 
-#: .\cpi\templates\cpi\partneri.html:100
+#: .\cpi\templates\cpi\partneri.html:34
+msgid "Search"
+msgstr "Pretraga"
+
+#: .\cpi\templates\cpi\partneri.html:167
 msgid ""
 "Centar za primenjenu istoriju je zvaničan partner organizacije „Viaggiare i "
 "Balcani“ (viaggiareibalcani.it) koja redovno organizuje grupna putovanja iz "
@@ -251,47 +541,76 @@ msgid ""
 "istorijske ture tematski vezane za istoriju bivše Jugoslavije."
 msgstr ""
 
-#: .\cpi\templates\cpi\press.html:126
-msgid ""
-"Prilog o aktivnostima CPI (odnosu javnosti prema istorijskim činjenicama iz "
-"bliske prošlosti)"
-msgstr ""
-"Report about the activities of CPI (the public opinion about historical "
-"facts from recent past)"
+#: .\cpi\templates\cpi\potvrda_prijave.html:145
+#: .\cpi\templates\cpi\prijava_redirect.html:145
+msgid "Vaša prijava za vodjenje je zabeležena."
+msgstr "You have registered for the tour!"
 
-#: .\cpi\templates\cpi\projekat_detalji.html:82
+#: .\cpi\templates\cpi\potvrda_prijave.html:146
+#: .\cpi\templates\cpi\prijava_redirect.html:146
+msgid "Vratite se na početnu stranu"
+msgstr "Back to the main page"
+
+#: .\cpi\templates\cpi\projekat_detalji.html:139
+#: .\cpi\templates\cpi\projekat_galerija.html:149
+#: .\cpi\templates\cpi\projekat_izlozba.html:141
+#: .\cpi\templates\cpi\sadrzaj.html:144
 msgid "PROJEKAT"
 msgstr "PROJECT"
 
-#: .\cpi\templates\cpi\projekat_detalji.html:94
+#: .\cpi\templates\cpi\projekat_detalji.html:151
 msgid "ARHIVSKI MATERIJAL"
-msgstr ""
+msgstr "ARCHIVE"
 
-#: .\cpi\templates\cpi\projekti.html:139
-msgid "Trenutno projekata."
-msgstr ""
-
-#: .\cpi\templates\cpi\publikacije.html:153
+#: .\cpi\templates\cpi\projekat_publikacije.html:192
+#: .\cpi\templates\cpi\publikacije.html:221
+#: .\cpi\templates\cpi\publikacije.html:294
 #, fuzzy
 #| msgid "Trenutno nema nikog u ekipi."
 msgid "Trenutno nema publikacija."
 msgstr "Currently our team has no members."
 
-#: .\cpi\templates\cpi\rezultati_pretrage.html:9
+#: .\cpi\templates\cpi\projekti.html:198 .\cpi\templates\cpi\projekti.html:255
+msgid "Trenutno projekata."
+msgstr ""
+
+#: .\cpi\templates\cpi\publikacija_detalji.html:157
+msgid "DOWNLOAD PDF"
+msgstr ""
+
+#: .\cpi\templates\cpi\rezultati_pretrage.html:102
 msgid "Molim vas unesite termin za pretragu."
 msgstr "Please submit a search term."
 
-#: .\cpi\templates\cpi\rezultati_pretrage.html:12
+#: .\cpi\templates\cpi\rezultati_pretrage.html:106
 msgid "Rezultati pretrage za"
 msgstr "Search results for"
 
-#: .\cpi\templates\cpi\rezultati_pretrage.html:22
-msgid "Ništa nije nađeno za"
+#: .\cpi\templates\cpi\rezultati_pretrage.html:147
+#, fuzzy
+#| msgid "Ništa nije nađeno za"
+msgid "Ništa nije nađeno za:"
 msgstr "Nothing found for"
 
-#: .\cpi\templates\cpi\tim.html:149
+#: .\cpi\templates\cpi\tim.html:197 .\cpi\templates\cpi\tim.html:234
 msgid "Trenutno nema nikog u ekipi."
 msgstr "Currently our team has no members."
+
+#, fuzzy
+#~| msgid ""
+#~| "Jednodnevna javna vodjenja, studijske posete i višednevne istorijske "
+#~| "ture na lokacije od istorijskog značaja"
+#~ msgid "Javna vodjenja i studijske posete na lokacije od istorijskog značaja"
+#~ msgstr ""
+#~ "One day open tours, study visits and multiple day history excursions to "
+#~ "historicaly significant locations"
+
+#~ msgid ""
+#~ "Prilog o aktivnostima CPI (odnosu javnosti prema istorijskim činjenicama "
+#~ "iz bliske prošlosti)"
+#~ msgstr ""
+#~ "Report about the activities of CPI (the public opinion about historical "
+#~ "facts from recent past)"
 
 #~ msgid "traži"
 #~ msgstr "search"
