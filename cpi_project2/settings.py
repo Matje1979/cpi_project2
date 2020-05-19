@@ -93,8 +93,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'cpi_database',
-        'USER' : 'postgres',
-        'PASSWORD': 'R_dev_123',
+        'USER' : '******',
+        'PASSWORD': '*******',
         'HOST': 'localhost',
         'PORT': '5432'
     }
